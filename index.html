@@ -1,0 +1,437 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swift Go - Mỗi chuyến đi, một câu chuyện</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/chat.css" />
+</head>
+<body class="site">
+<div id="header-placeholder">
+  <header class="header" id="site-header">
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="Trang chủ Swift Go">
+        <img src="assets/image/icon.jpg" alt="Swift Go - Mỗi chuyến đi, một câu chuyện" height="40" />
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" class="nav-item">Trang chủ</a>
+        <a href="page-services.html" class="nav-item">Dịch vụ</a>
+        <a href="page-stories.html" class="nav-item">Câu chuyện</a>
+        <a href="archive-tour.html" class="nav-item">Tour</a>
+        <a href="page-search.html" class="nav-item">Tìm kiếm</a>
+      </nav>
+      <div class="auth">
+        <a class="btn btn-ghost" href="/signup.html">Đăng ký</a>
+        <a class="btn btn-primary" href="/login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </header>
+</div>
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <h1>Swift Go — Mỗi chuyến đi, một câu chuyện</h1>
+      <p>Gọn gàng như vali nhỏ xinh · Nhanh chóng như đường bay thẳng · Trọn vẹn như hành trình đáng nhớ</p>
+    </div>
+
+    <form id="search-form" class="search" autocomplete="off" aria-label="Tìm kiếm du lịch">
+      <div class="field with-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="10.5" r="7.5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        <input id="destination" name="destination" type="text" placeholder="Bạn muốn đi đâu?" aria-label="Điểm đến" required />
+      </div>
+
+      <div class="field with-icon occupancy">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm8 9a8 8 0 1 0-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <button type="button" class="occupancy-toggle" id="occupancy-toggle" aria-expanded="false" aria-controls="occupancy-dropdown">2 người lớn · 0 trẻ em · 1 phòng</button>
+        <div class="dropdown" id="occupancy-dropdown" role="dialog" aria-label="Chọn số người và phòng">
+          <div class="row">
+            <div class="label">
+              <div>Người lớn</div>
+              <small>Từ 18 tuổi</small>
+            </div>
+            <div class="counter" data-key="adults">
+              <button type="button" class="btn-round minus" aria-label="Giảm">−</button>
+              <span class="value">2</span>
+              <button type="button" class="btn-round plus" aria-label="Tăng">+</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label">
+              <div>Trẻ em</div>
+              <small>0–17 tuổi</small>
+            </div>
+            <div class="counter" data-key="children">
+              <button type="button" class="btn-round minus" aria-label="Giảm">−</button>
+              <span class="value">0</span>
+              <button type="button" class="btn-round plus" aria-label="Tăng">+</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label">
+              <div>Phòng</div>
+              <small>Số phòng</small>
+            </div>
+            <div class="counter" data-key="rooms">
+              <button type="button" class="btn-round minus" aria-label="Giảm">−</button>
+              <span class="value">1</span>
+              <button type="button" class="btn-round plus" aria-label="Tăng">+</button>
+            </div>
+          </div>
+          <div class="dropdown-actions">
+            <button type="button" class="btn btn-ghost" id="occupancy-close">Đóng</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary search-submit" type="submit">Tìm</button>
+    </form>
+
+    <div class="chips" role="tablist" aria-label="Bộ lọc nhanh">
+      <button class="chip active" role="tab" aria-selected="true">Lưu trú</button>
+      <button class="chip" role="tab">Ưu đãi hôm nay</button>
+      <button class="chip" role="tab">Gần tôi</button>
+      <button class="chip" role="tab">Biển</button>
+      <button class="chip" role="tab">Thiên nhiên</button>
+    </div>
+  </div>
+</section>
+
+<!-- Wanderlust Chronicles Section -->
+<section class="wanderlust-intro" style="background:var(--bg-soft);padding:48px 0;">
+  <div class="container">
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <h2 style="font-size:32px;color:var(--primary);margin-bottom:16px;">
+        <span style="font-style:italic;">Wanderlust Chronicles</span> - Nền tảng kể chuyện du lịch
+      </h2>
+      <p style="font-size:16px;line-height:1.8;color:var(--text);margin-bottom:12px;">
+        Mỗi điểm đến là một câu chuyện sống động. Du khách không chỉ xem thông tin mà còn được "trải nghiệm" 
+        câu chuyện của từng nơi sắp đến.
+      </p>
+      <p style="font-size:15px;color:var(--muted);margin-bottom:24px;">
+        Thay vì review khô khan, chúng tôi dẫn dắt bạn qua những câu chuyện nhân văn, sự tiếp xúc gần gũi, 
+        và những trải nghiệm đáng nhớ. Mỗi booking trở thành việc viết tiếp câu chuyện của chính bạn.
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="page-stories.html" class="btn btn-primary" style="padding:12px 24px;">Khám phá câu chuyện</a>
+        <a href="page-services.html" class="btn btn-ghost" style="padding:12px 24px;">Xem dịch vụ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="popular" id="popular">
+  <div class="container section-head">
+    <h2>Điểm đến phổ biến</h2>
+    <p>Thành phố được yêu thích bởi du khách</p>
+  </div>
+  <div class="container grid grid-4">
+    <a class="city-card" href="#">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1542621334-a254cf47733d?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/hcm/600/400" alt="TP. Hồ Chí Minh" />
+      <div class="city-meta">
+        <strong>TP. Hồ Chí Minh</strong>
+        <span>Việt Nam</span>
+      </div>
+    </a>
+    <a class="city-card" href="#">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/hanoi/600/400" alt="Hà Nội" />
+      <div class="city-meta">
+        <strong>Hà Nội</strong>
+        <span>Việt Nam</span>
+      </div>
+    </a>
+    <a class="city-card" href="#">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/danang/600/400" alt="Đà Nẵng" />
+      <div class="city-meta">
+        <strong>Đà Nẵng</strong>
+        <span>Việt Nam</span>
+      </div>
+    </a>
+    <a class="city-card" href="#">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/nhatrang/600/400" alt="Nha Trang" />
+      <div class="city-meta">
+        <strong>Nha Trang</strong>
+        <span>Việt Nam</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="deals" id="deals">
+  <div class="container section-head with-actions">
+    <div>
+      <h2>Ưu đãi dành cho bạn</h2>
+      <p>Tiết kiệm cho kỳ nghỉ sắp tới</p>
+    </div>
+    <div class="actions">
+      <button class="btn-round ghost" id="deals-prev" aria-label="Xem trước">◂</button>
+      <button class="btn-round ghost" id="deals-next" aria-label="Xem tiếp">▸</button>
+    </div>
+  </div>
+  <div class="container carousel" id="deals-carousel" aria-label="Danh sách ưu đãi">
+    <article class="deal-card">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1501117716987-c8eacf6a3bb7?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/deal1/600/400" alt="Khu nghỉ dưỡng bên biển" />
+      <div class="deal-body">
+        <h3>Nghỉ dưỡng bên biển</h3>
+        <p>Giảm đến 20% cho đặt sớm</p>
+        <button class="btn btn-ghost">Khám phá</button>
+      </div>
+    </article>
+    <article class="deal-card">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1505692794403-34d4982f88aa?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/deal2/600/400" alt="Khách sạn trung tâm" />
+      <div class="deal-body">
+        <h3>Khách sạn trung tâm</h3>
+        <p>Vị trí thuận tiện, giá hợp lý</p>
+        <button class="btn btn-ghost">Xem ngay</button>
+      </div>
+    </article>
+    <article class="deal-card">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/deal3/600/400" alt="Homestay ấm cúng" />
+      <div class="deal-body">
+        <h3>Homestay ấm cúng</h3>
+        <p>Không gian như ở nhà</p>
+        <button class="btn btn-ghost">Đặt chỗ</button>
+      </div>
+    </article>
+    <article class="deal-card">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/deal4/600/400" alt="Villa riêng tư" />
+      <div class="deal-body">
+        <h3>Villa riêng tư</h3>
+        <p>Phù hợp cho nhóm bạn</p>
+        <button class="btn btn-ghost">Khám phá</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="stays" id="stays">
+  <div class="container section-head">
+    <h2>Chỗ nghỉ nổi bật</h2>
+    <p>Lựa chọn được yêu thích bởi du khách</p>
+  </div>
+  <div class="container grid grid-3">
+    <article class="stay-card" data-item-id="skyline-hcm">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/stay1/600/400" alt="Khách sạn Skyline" />
+      <div class="stay-body">
+        <div class="stay-title">Khách sạn Skyline</div>
+        <div class="stay-sub">Quận 1, TP. HCM</div>
+        <div class="stay-meta">
+          <span class="badge rating">9.0</span>
+          <span>Tuyệt hảo · 1.245 đánh giá</span>
+        </div>
+        <div class="stay-price">
+          <div><strong>1.250.000₫</strong> / đêm</div>
+          <button class="btn btn-primary">Xem phòng</button>
+        </div>
+      </div>
+    </article>
+    <article class="stay-card" data-item-id="bienxanh-nhatrang">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/stay2/600/400" alt="Resort Biển Xanh" />
+      <div class="stay-body">
+        <div class="stay-title">Resort Biển Xanh</div>
+        <div class="stay-sub">Nha Trang, Khánh Hòa</div>
+        <div class="stay-meta">
+          <span class="badge rating">8.7</span>
+          <span>Tuyệt vời · 832 đánh giá</span>
+        </div>
+        <div class="stay-price">
+          <div><strong>2.050.000₫</strong> / đêm</div>
+          <button class="btn btn-primary">Đặt ngay</button>
+        </div>
+      </div>
+    </article>
+    <article class="stay-card" data-item-id="doithong-dalat">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/stay3/600/400" alt="Villa Đồi Thông" />
+      <div class="stay-body">
+        <div class="stay-title">Villa Đồi Thông</div>
+        <div class="stay-sub">Đà Lạt, Lâm Đồng</div>
+        <div class="stay-meta">
+          <span class="badge rating">9.3</span>
+          <span>Xuất sắc · 413 đánh giá</span>
+        </div>
+        <div class="stay-price">
+          <div><strong>3.450.000₫</strong> / đêm</div>
+          <button class="btn btn-primary">Chi tiết</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="home-section alt" id="home-filters">
+  <div class="container section-head inline">
+    <div>
+      <h2>Khám phá theo nhu cầu</h2>
+      <p>Tùy chọn nhanh giúp bạn tìm đúng chỗ nghỉ</p>
+    </div>
+  </div>
+  <div class="container filter-chips" aria-label="Bộ lọc tuỳ chọn">
+    <button class="filter-chip active" data-filter="popular">Phổ biến</button>
+    <button class="filter-chip" data-filter="cheap">Giá tốt</button>
+    <button class="filter-chip" data-filter="luxury">Sang trọng</button>
+    <button class="filter-chip" data-filter="family">Gia đình</button>
+    <button class="filter-chip" data-filter="business">Doanh nhân</button>
+    <button class="filter-chip" data-filter="nature">Gần thiên nhiên</button>
+    <button class="filter-chip" data-filter="sea">Gần biển</button>
+    <button class="filter-chip" data-filter="late">Có đặt phút chót</button>
+  </div>
+  <div class="container property-types" aria-label="Loại hình chỗ nghỉ">
+    <div class="type-card"><strong>Khách sạn</strong><span>Nhiều tiện nghi</span></div>
+    <div class="type-card"><strong>Căn hộ</strong><span>Không gian riêng</span></div>
+    <div class="type-card"><strong>Resort</strong><span>Nghỉ dưỡng trọn gói</span></div>
+    <div class="type-card"><strong>Homestay</strong><span>Bản địa & ấm cúng</span></div>
+    <div class="type-card"><strong>Villa</strong><span>Nhóm bạn & gia đình</span></div>
+    <div class="type-card"><strong>Nhà khách</strong><span>Giá tiết kiệm</span></div>
+  </div>
+</section>
+
+<section class="home-section" id="recent-rooms">
+  <div class="container section-head inline">
+    <div>
+      <h2>Phòng mới cập nhật</h2>
+      <p>Từ đối tác & chủ nhà vừa đăng</p>
+    </div>
+    <div class="inline-actions"><a class="btn btn-ghost" href="/rooms">Xem tất cả</a></div>
+  </div>
+  <div class="container room-grid">
+      <article class="room-card" data-item-id="room-1">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80" data-fallback="https://picsum.photos/seed/room1/600/400" alt="Phòng 1" />
+        <div class="room-body">
+          <h3 class="room-title">Phòng mẫu 1</h3>
+          <div class="room-meta"><span class="badge rating small">8.5</span><span>TP. Hồ Chí Minh</span></div>
+          <div class="room-tags"><span class="room-tag">Wi-Fi</span><span class="room-tag">Máy lạnh</span></div>
+          <div class="room-price"><div><strong>990.000₫</strong> / đêm</div><button class="btn btn-primary">Chi tiết</button></div>
+        </div>
+      </article>
+      <article class="room-card" data-item-id="room-2">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" data-fallback="https://picsum.photos/seed/room2/600/400" alt="Phòng 2" />
+        <div class="room-body">
+          <h3 class="room-title">Phòng mẫu 2</h3>
+          <div class="room-meta"><span class="badge rating small">8.7</span><span>Hà Nội</span></div>
+          <div class="room-tags"><span class="room-tag">Bồn tắm</span><span class="room-tag">Ban công</span></div>
+          <div class="room-price"><div><strong>1.200.000₫</strong> / đêm</div><a class="btn btn-primary" href="#">Chi tiết</a></div>
+        </div>
+      </article>
+      <article class="room-card" data-item-id="room-3">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" data-fallback="https://picsum.photos/seed/room3/600/400" alt="Phòng 3" />
+        <div class="room-body">
+          <h3 class="room-title">Phòng mẫu 3</h3>
+          <div class="room-meta"><span class="badge rating small">9.0</span><span>Đà Nẵng</span></div>
+          <div class="room-tags"><span class="room-tag">Hồ bơi</span><span class="room-tag">View đẹp</span></div>
+          <div class="room-price"><div><strong>1.500.000₫</strong> / đêm</div><a class="btn btn-primary" href="#">Chi tiết</a></div>
+        </div>
+      </article>
+      <article class="room-card" data-item-id="room-4">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" data-fallback="https://picsum.photos/seed/room4/600/400" alt="Phòng 4" />
+        <div class="room-body">
+          <h3 class="room-title">Phòng mẫu 4</h3>
+          <div class="room-meta"><span class="badge rating small">8.8</span><span>Nha Trang</span></div>
+          <div class="room-tags"><span class="room-tag">Máy sưởi</span><span class="room-tag">Bữa sáng</span></div>
+          <div class="room-price"><div><strong>1.350.000₫</strong> / đêm</div><a class="btn btn-primary" href="#">Chi tiết</a></div>
+        </div>
+      </article>
+      <article class="room-card" data-item-id="room-5">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80" data-fallback="https://picsum.photos/seed/room5/600/400" alt="Phòng 5" />
+        <div class="room-body">
+          <h3 class="room-title">Phòng mẫu 5</h3>
+          <div class="room-meta"><span class="badge rating small">9.2</span><span>Đà Lạt</span></div>
+          <div class="room-tags"><span class="room-tag">Chỗ đậu xe</span><span class="room-tag">Gần biển</span></div>
+          <div class="room-price"><div><strong>1.800.000₫</strong> / đêm</div><a class="btn btn-primary" href="#">Chi tiết</a></div>
+        </div>
+      </article>
+      <article class="room-card" data-item-id="room-6">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" data-fallback="https://picsum.photos/seed/room6/600/400" alt="Phòng 6" />
+        <div class="room-body">
+          <h3 class="room-title">Phòng mẫu 6</h3>
+          <div class="room-meta"><span class="badge rating small">8.6</span><span>Phú Quốc</span></div>
+          <div class="room-tags"><span class="room-tag">Wi-Fi</span><span class="room-tag">Máy lạnh</span></div>
+          <div class="room-price"><div><strong>1.100.000₫</strong> / đêm</div><a class="btn btn-primary" href="#">Chi tiết</a></div>
+        </div>
+      </article>
+  </div>
+</section>
+
+<section class="home-section alt" id="room-tags-cloud">
+  <div class="container section-head">
+    <h2>Thẻ phổ biến</h2>
+    <p>Tính năng & tiện nghi được tìm nhiều</p>
+  </div>
+  <div class="container tag-cloud" aria-label="Danh sách thẻ">
+      <a href="#" class="tag" aria-label="Xem thẻ Wi-Fi">Wi-Fi</a>
+      <a href="#" class="tag" aria-label="Xem thẻ Máy lạnh">Máy lạnh</a>
+      <a href="#" class="tag" aria-label="Xem thẻ Bồn tắm">Bồn tắm</a>
+      <a href="#" class="tag" aria-label="Xem thẻ Hồ bơi">Hồ bơi</a>
+      <a href="#" class="tag" aria-label="Xem thẻ Ban công">Ban công</a>
+      <a href="#" class="tag" aria-label="Xem thẻ View đẹp">View đẹp</a>
+      <a href="#" class="tag" aria-label="Xem thẻ Máy sưởi">Máy sưởi</a>
+      <a href="#" class="tag" aria-label="Xem thẻ Bữa sáng">Bữa sáng</a>
+      <a href="#" class="tag" aria-label="Xem thẻ Chỗ đậu xe">Chỗ đậu xe</a>
+      <a href="#" class="tag" aria-label="Xem thẻ Gần biển">Gần biển</a>
+  </div>
+</section>
+
+<section class="home-section" id="travel-guides">
+  <div class="container section-head inline">
+    <div>
+      <h2>Cẩm nang du lịch</h2>
+      <p>Mẹo & gợi ý giúp chuyến đi hoàn hảo</p>
+    </div>
+    <div class="inline-actions"><a href="#" class="more-link">Xem thêm bài viết</a></div>
+  </div>
+  <div class="container guides-grid" aria-label="Danh sách cẩm nang">
+    <article class="guide-card">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/guide1/600/400" alt="Chuẩn bị hành lý" />
+      <div class="guide-body">
+        <h3>Checklist hành lý thông minh</h3>
+        <p>Những món đồ không thể thiếu cho chuyến đi dài ngày.</p>
+      </div>
+    </article>
+    <article class="guide-card">
+      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/guide2/600/400" alt="Ăn uống địa phương" />
+      <div class="guide-body">
+        <h3>Ăn uống địa phương tiết kiệm</h3>
+        <p>Cách tìm quán ngon, rẻ và chuẩn bản địa.</p>
+      </div>
+    </article>
+    <article class="guide-card">
+      <img src="https://images.unsplash.com/photo-1490337457139-91f9db7d839e?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/guide3/600/400" alt="Lịch trình 3 ngày" />
+      <div class="guide-body">
+        <h3>Lịch trình 3 ngày hoàn hảo</h3>
+        <p>Mẫu gợi ý tối ưu thời gian tham quan & nghỉ ngơi.</p>
+      </div>
+    </article>
+    <article class="guide-card">
+      <img src="https://images.unsplash.com/photo-1587502537745-84fa7575c2ce?auto=format&fit=crop&w=1200&q=80" data-fallback="https://picsum.photos/seed/guide4/600/400" alt="Bí quyết săn vé" />
+      <div class="guide-body">
+        <h3>Bí quyết săn vé & đặt phòng</h3>
+        <p>Thời điểm & mẹo để có giá tốt nhất.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<div id="footer-placeholder">
+    <footer class="footer">
+      <div class="container footnote">© <span id="year"></span> Swift Go.</div>
+    </footer>
+
+  </div>
+
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/chat.js"></script>
+    <script src="assets/js/img-fallback.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/autocomplete.js"></script>
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/autocomplete.css">
+  </body>
+</html>
+

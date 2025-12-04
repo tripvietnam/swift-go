@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swift Go - Kết quả tìm kiếm</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/results.css">
+  <link rel="stylesheet" href="assets/css/chat.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body class="site">
+
+<div id="header-placeholder"></div>
+
+<main class="results">
+  <section class="container results-head">
+    <div>
+      <h1 id="results-title">Chỗ nghỉ</h1>
+      <p id="results-sub"></p>
+    </div>
+    <div class="sort">
+      <label for="sort">Sắp xếp:</label>
+      <select id="sort">
+        <option value="popular">Phổ biến</option>
+        <option value="price-asc">Giá tăng dần</option>
+        <option value="price-desc">Giá giảm dần</option>
+        <option value="rating-desc">Điểm đánh giá</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="container results-body">
+    <aside class="filters" id="filters">
+      <h3>Bộ lọc</h3>
+      <div class="filter-group">
+        <div class="filter-title">Mức giá (đ/đêm)</div>
+        <input type="range" id="priceMax" min="300000" max="5000000" value="5000000" step="50000" />
+        <div class="filter-note">Tối đa: <span id="priceMaxVal">5.000.000₫</span></div>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-title">Điểm đánh giá</div>
+        <label class="checkbox"><input type="checkbox" value="9" class="rating-check" /> 9.0 trở lên</label>
+        <label class="checkbox"><input type="checkbox" value="8" class="rating-check" /> 8.0 trở lên</label>
+        <label class="checkbox"><input type="checkbox" value="7" class="rating-check" /> 7.0 trở lên</label>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-title">Loại chỗ nghỉ</div>
+        <label class="checkbox"><input type="checkbox" value="hotel" class="type-check" /> Khách sạn</label>
+        <label class="checkbox"><input type="checkbox" value="resort" class="type-check" /> Resort</label>
+        <label class="checkbox"><input type="checkbox" value="villa" class="type-check" /> Villa</label>
+        <label class="checkbox"><input type="checkbox" value="homestay" class="type-check" /> Homestay</label>
+      </div>
+    </aside>
+
+    <div class="list" id="results-list" aria-live="polite"></div>
+  </section>
+
+  <section class="container pagination">
+    <button class="btn btn-ghost" disabled>«</button>
+    <button class="btn btn-primary">1</button>
+    <button class="btn btn-ghost">2</button>
+    <button class="btn btn-ghost">3</button>
+    <button class="btn btn-ghost">»</button>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="assets/js/components.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/chat.js"></script>
+<script src="assets/js/img-fallback.js"></script>
+<script src="assets/js/search.js"></script>
+
+</body>
+</html>
+

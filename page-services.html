@@ -1,0 +1,421 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dịch vụ - Swift Go</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/chat.css" />
+</head>
+<body class="site">
+<div id="header-placeholder">
+  <header class="header" id="site-header">
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="Trang chủ Swift Go">
+        <img src="assets/image/icon.jpg" alt="Swift Go" height="40" />
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-item">Trang chủ</a>
+        <a href="page-services.html" class="nav-item">Dịch vụ</a>
+        <a href="page-stories.html" class="nav-item">Câu chuyện</a>
+        <a href="archive-tour.html" class="nav-item">Tour</a>
+        <a href="page-search.html" class="nav-item">Tìm kiếm</a>
+      </nav>
+      <div class="auth">
+        <a class="btn btn-ghost" href="/signup.html">Đăng ký</a>
+        <a class="btn btn-primary" href="/login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </header>
+</div>
+<main>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Danh mục dịch vụ du lịch</h1>
+    <p>Khám phá đầy đủ các dịch vụ để chuyến đi của bạn trọn vẹn</p>
+  </div>
+</section>
+
+<section class="services-overview">
+  <div class="container">
+    <div class="services-grid" id="services-grid">
+      <!-- Services will be loaded here -->
+    </div>
+  </div>
+</section>
+
+<div id="services-details">
+  <!-- Service details will be loaded here -->
+</div>
+
+<style>
+.page-header {
+  background: linear-gradient(135deg, var(--booking-blue-dark) 0%, var(--booking-blue) 100%);
+  padding: 64px 0 48px;
+  color: #fff;
+  text-align: center;
+}
+.page-header h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+.page-header p {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+.services-overview {
+  padding: 48px 0;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+.service-category-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s;
+  box-shadow: var(--shadow);
+}
+.service-category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.service-icon img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.service-content h2 {
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.service-desc {
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.service-price {
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.service-price strong {
+  color: var(--primary);
+}
+
+.service-detail {
+  padding: 48px 0;
+  background: var(--bg-soft);
+}
+.service-detail:nth-child(even) {
+  background: #fff;
+}
+.section-head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.section-head h2 {
+  font-size: 32px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.section-head p {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.service-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+.service-item-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+}
+.service-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.item-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+.item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.item-image .badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.item-body {
+  padding: 20px;
+}
+.item-title {
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.item-location {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.item-description {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.tag {
+  background: var(--bg-soft);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+.item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.item-price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.item-price small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.price-value strong {
+  font-size: 20px;
+  color: var(--primary);
+}
+.price-value span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 968px) {
+  .page-header h1 { font-size: 32px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-items-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+</main>
+
+<div id="footer-placeholder">
+    <footer class="footer">
+      <div class="container footnote">© <span id="year"></span> Swift Go.</div>
+    </footer>
+
+    <div id="ai-chat-widget" class="ai-chat" aria-live="polite">
+      <button class="ai-chat-toggle" id="ai-chat-toggle" aria-controls="ai-chat-panel" aria-expanded="false">💬 Trợ lý AI</button>
+      <div id="ai-chat-panel" class="ai-chat-panel" role="dialog" aria-modal="false">
+        <div class="ai-chat-header">
+          <div class="ai-chat-title">Trợ lý Du lịch AI</div>
+          <button type="button" class="ai-chat-close" id="ai-chat-close">×</button>
+        </div>
+        <div class="ai-chat-messages" id="ai-chat-messages"></div>
+        <form class="ai-chat-form" id="ai-chat-form" autocomplete="off">
+          <textarea id="ai-chat-input" class="ai-chat-input" rows="2" placeholder="Nhập câu hỏi: ví dụ 'Gợi ý lịch trình 3 ngày ở Đà Nẵng'"></textarea>
+          <div class="ai-chat-actions">
+            <button type="submit" class="btn btn-primary ai-send">Gửi</button>
+            <button type="button" class="btn ai-clear" id="ai-chat-clear">Xóa</button>
+          </div>
+          <div class="ai-chat-hint">Mẹo: hỏi về gợi ý địa điểm, lịch trình, chi phí...</div>
+        </form>
+      </div>
+    </div>
+</div>
+
+<script src="assets/js/components.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/chat.js"></script>
+<script src="assets/js/img-fallback.js"></script>
+<script src="assets/js/modal.js"></script>
+<link rel="stylesheet" href="assets/css/auth.css">
+<link rel="stylesheet" href="assets/css/modal.css">
+
+<script>
+let servicesData = [];
+
+async function loadServices() {
+  try {
+    const response = await fetch('data/services.json');
+    const data = await response.json();
+    servicesData = data.services || [];
+    renderServicesOverview();
+    renderServicesDetails();
+  } catch (error) {
+    console.error('Error loading services:', error);
+  }
+}
+
+function renderServicesOverview() {
+  const grid = document.getElementById('services-grid');
+  grid.innerHTML = '';
+  
+  servicesData.forEach(service => {
+    const card = document.createElement('article');
+    card.className = 'service-category-card';
+    card.innerHTML = `
+      <div class="service-icon">
+        <img src="${service.icon}" alt="${service.name}" />
+      </div>
+      <div class="service-content">
+        <h2>${service.name}</h2>
+        <p class="service-desc">${service.description}</p>
+        <p class="service-price">Khoảng giá: <strong>${service.priceRange}</strong></p>
+        <a href="#service-${service.id}" class="btn btn-primary">Xem chi tiết</a>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderServicesDetails() {
+  const container = document.getElementById('services-details');
+  container.innerHTML = '';
+  
+  servicesData.forEach(service => {
+    const section = document.createElement('section');
+    section.className = 'service-detail';
+    section.id = `service-${service.id}`;
+    
+    const itemsHTML = service.items.map(item => `
+      <article class="service-item-card" data-item-id="${item.id}">
+        <div class="item-image">
+          <img src="${item.image}" alt="${item.name}" loading="lazy" 
+               data-fallback="assets/image/icon.jpg"
+               onerror="this.src='assets/image/icon.jpg';" />
+          ${item.rating ? `<span class="badge rating">${item.rating.toFixed(1)}</span>` : ''}
+        </div>
+        <div class="item-body">
+          <h3 class="item-title">${item.name}</h3>
+          ${item.location ? `<p class="item-location">📍 ${item.location}</p>` : ''}
+          ${item.cuisine ? `<p class="item-location">🍽️ ${item.cuisine}</p>` : ''}
+          ${item.airline ? `<p class="item-location">✈️ ${item.airline}</p>` : ''}
+          ${item.duration ? `<p class="item-location">⏱️ ${item.duration}</p>` : ''}
+          <p class="item-description">${item.description || ''}</p>
+          ${item.amenities ? `<div class="item-tags">${item.amenities.map(a => `<span class="tag">${a}</span>`).join('')}</div>` : ''}
+          ${item.specialties ? `<div class="item-tags">${item.specialties.map(s => `<span class="tag">${s}</span>`).join('')}</div>` : ''}
+          <div class="item-footer">
+            <div class="item-price">
+              ${item.reviews ? `<small>${item.reviews.toLocaleString()} đánh giá</small>` : ''}
+              <div class="price-value">
+                <strong>${item.price.toLocaleString()}₫</strong>
+                <span>/${item.priceUnit || 'đêm'}</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-book" 
+                    data-item-id="${item.id}"
+                    data-service="${service.name}"
+                    data-item="${item.name}"
+                    data-price="${item.price}">
+              Đặt ngay
+            </button>
+          </div>
+        </div>
+      </article>
+    `).join('');
+    
+    section.innerHTML = `
+      <div class="container">
+        <div class="section-head">
+          <h2>${service.name}</h2>
+          <p>${service.description}</p>
+        </div>
+        <div class="service-items-grid">
+          ${itemsHTML}
+        </div>
+      </div>
+    `;
+    
+    container.appendChild(section);
+  });
+}
+
+// Load services on page load
+loadServices();
+
+// Đặt hàng: lắng nghe click vào nút "Đặt ngay" và thêm vào giỏ
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn-book');
+  if (!btn) return;
+  e.preventDefault();
+
+  try {
+    const userRaw = localStorage.getItem('swiftgo_user');
+    const user = userRaw ? JSON.parse(userRaw) : null;
+    if (!user || !user.email) {
+      alert('Vui lòng đăng nhập trước khi đặt.');
+      if (window.SwiftGoAuth && typeof window.SwiftGoAuth.openLogin === 'function') {
+        window.SwiftGoAuth.openLogin();
+      }
+      return;
+    }
+
+    const item = {
+      type: 'service',
+      service: btn.getAttribute('data-service') || 'Dịch vụ',
+      name: btn.getAttribute('data-item') || 'Sản phẩm',
+      price: Number(btn.getAttribute('data-price') || 0),
+      email: user.email
+    };
+
+    if (window.SwiftGoAuth && typeof window.SwiftGoAuth.addToCart === 'function') {
+      window.SwiftGoAuth.addToCart(item);
+      alert(`Đã thêm "${item.name}" vào giỏ hàng của bạn.`);
+    } else {
+      // Fallback tự thêm vào localStorage nếu SwiftGoAuth chưa sẵn sàng
+      const key = 'swiftgo_cart';
+      const raw = localStorage.getItem(key);
+      const cart = raw ? JSON.parse(raw) : [];
+      cart.push(item);
+      localStorage.setItem(key, JSON.stringify(cart));
+      alert(`Đã thêm "${item.name}" vào giỏ hàng của bạn.`);
+    }
+  } catch (err) {
+    console.error('Add to cart error:', err);
+    alert('Có lỗi khi thêm vào giỏ. Vui lòng thử lại.');
+  }
+});
+</script>
+
+</body>
+</html>
+

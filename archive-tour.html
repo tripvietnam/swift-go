@@ -1,0 +1,206 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swift Go - Danh sách tour</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/tour.css">
+  <link rel="stylesheet" href="assets/css/chat.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body class="site">
+
+<div id="header-placeholder"></div>
+
+<main>
+<section class="container">
+  <div class="section-head">
+    <h2>Danh sách tour</h2>
+    <p>Tìm và lọc tour theo nhu cầu</p>
+  </div>
+  <form id="tour-filters" class="archive-filters" method="get">
+    <div>
+      <label>Điểm đến</label>
+      <input type="text" name="destination" value="" placeholder="VD: Đà Nẵng" />
+    </div>
+    <div>
+      <label>Số ngày</label>
+      <input type="number" min="1" name="days" value="" />
+    </div>
+    <div>
+      <label>Giá từ</label>
+      <input type="number" min="0" name="price_min" value="" />
+    </div>
+    <div>
+      <label>Giá đến</label>
+      <input type="number" min="0" name="price_max" value="" />
+    </div>
+    <div>
+      <label>Loại tour</label>
+      <select name="type">
+        <option value="">Tất cả</option>
+        <option value="1">Tour du lịch biển</option>
+        <option value="2">Tour khám phá núi</option>
+        <option value="3">Tour văn hóa</option>
+      </select>
+    </div>
+    <div style="grid-column:1/-1; display:flex; gap:10px; justify-content:flex-end">
+      <button class="btn btn-ghost" type="reset">Xóa lọc</button>
+      <button class="btn btn-primary" type="submit">Lọc</button>
+    </div>
+  </form>
+
+  <div class="archive-grid">
+    <!-- Tour mẫu 1 -->
+    <article class="tour-card">
+      <a href="/tour-da-nang-3-ngay.html">
+        <img src="https://picsum.photos/seed/tour1/600/400" alt="Tour Đà Nẵng 3 ngày 2 đêm" />
+      </a>
+      <div class="body">
+        <div class="title"><a href="/tour-da-nang-3-ngay.html">Tour Đà Nẵng 3 ngày 2 đêm</a></div>
+        <div class="meta"><span>3 ngày</span></div>
+        <div class="price">
+          <div><strong>2.500.000₫</strong> / người</div>
+          <a class="btn btn-ghost" href="/tour-da-nang-3-ngay.html">Xem tour</a>
+          <button class="btn btn-primary btn-book-tour" data-name="Tour Đà Nẵng 3 ngày 2 đêm" data-price="2500000" data-duration="3 ngày">Đặt ngay</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tour mẫu 2 -->
+    <article class="tour-card">
+      <a href="/tour-ha-long.html">
+        <img src="https://picsum.photos/seed/tour2/600/400" alt="Tour Vịnh Hạ Long" />
+      </a>
+      <div class="body">
+        <div class="title"><a href="/tour-ha-long.html">Tour Vịnh Hạ Long 2 ngày 1 đêm</a></div>
+        <div class="meta"><span>2 ngày</span></div>
+        <div class="price">
+          <div><strong>1.800.000₫</strong> / người</div>
+          <a class="btn btn-ghost" href="/tour-ha-long.html">Xem tour</a>
+          <button class="btn btn-primary btn-book-tour" data-name="Tour Vịnh Hạ Long 2 ngày 1 đêm" data-price="1800000" data-duration="2 ngày">Đặt ngay</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tour mẫu 3 -->
+    <article class="tour-card">
+      <a href="/tour-sapa.html">
+        <img src="https://picsum.photos/seed/tour3/600/400" alt="Tour Sapa khám phá" />
+      </a>
+      <div class="body">
+        <div class="title"><a href="/tour-sapa.html">Tour Sapa khám phá 4 ngày 3 đêm</a></div>
+        <div class="meta"><span>4 ngày</span></div>
+        <div class="price">
+          <div><strong>3.200.000₫</strong> / người</div>
+          <a class="btn btn-ghost" href="/tour-sapa.html">Xem tour</a>
+          <button class="btn btn-primary btn-book-tour" data-name="Tour Sapa khám phá 4 ngày 3 đêm" data-price="3200000" data-duration="4 ngày">Đặt ngay</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tour mẫu 4 -->
+    <article class="tour-card">
+      <a href="/tour-phu-quoc.html">
+        <img src="https://picsum.photos/seed/tour4/600/400" alt="Tour Phú Quốc" />
+      </a>
+      <div class="body">
+        <div class="title"><a href="/tour-phu-quoc.html">Tour Phú Quốc nghỉ dưỡng</a></div>
+        <div class="meta"><span>5 ngày</span></div>
+        <div class="price">
+          <div><strong>4.500.000₫</strong> / người</div>
+          <a class="btn btn-ghost" href="/tour-phu-quoc.html">Xem tour</a>
+          <button class="btn btn-primary btn-book-tour" data-name="Tour Phú Quốc nghỉ dưỡng" data-price="4500000" data-duration="5 ngày">Đặt ngay</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tour mẫu 5 -->
+    <article class="tour-card">
+      <a href="/tour-hoi-an.html">
+        <img src="https://picsum.photos/seed/tour5/600/400" alt="Tour Hội An" />
+      </a>
+      <div class="body">
+        <div class="title"><a href="/tour-hoi-an.html">Tour Hội An - Huế văn hóa</a></div>
+        <div class="meta"><span>3 ngày</span></div>
+        <div class="price">
+          <div><strong>2.800.000₫</strong> / người</div>
+          <a class="btn btn-ghost" href="/tour-hoi-an.html">Xem tour</a>
+          <button class="btn btn-primary btn-book-tour" data-name="Tour Hội An - Huế văn hóa" data-price="2800000" data-duration="3 ngày">Đặt ngay</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tour mẫu 6 -->
+    <article class="tour-card">
+      <a href="/tour-nha-trang.html">
+        <img src="https://picsum.photos/seed/tour6/600/400" alt="Tour Nha Trang" />
+      </a>
+      <div class="body">
+        <div class="title"><a href="/tour-nha-trang.html">Tour Nha Trang biển xanh</a></div>
+        <div class="meta"><span>3 ngày</span></div>
+        <div class="price">
+          <div><strong>2.200.000₫</strong> / người</div>
+          <a class="btn btn-ghost" href="/tour-nha-trang.html">Xem tour</a>
+          <button class="btn btn-primary btn-book-tour" data-name="Tour Nha Trang biển xanh" data-price="2200000" data-duration="3 ngày">Đặt ngay</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="assets/js/components.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/chat.js"></script>
+<script src="assets/js/img-fallback.js"></script>
+<script>
+// Đặt tour: thêm vào giỏ hàng theo user
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn-book-tour');
+  if (!btn) return;
+  e.preventDefault();
+
+  try {
+    const userRaw = localStorage.getItem('swiftgo_user');
+    const user = userRaw ? JSON.parse(userRaw) : null;
+    if (!user || !user.email) {
+      alert('Vui lòng đăng nhập trước khi đặt tour.');
+      if (window.SwiftGoAuth && typeof window.SwiftGoAuth.openLogin === 'function') {
+        window.SwiftGoAuth.openLogin();
+      }
+      return;
+    }
+
+    const item = {
+      type: 'tour',
+      name: btn.getAttribute('data-name') || 'Tour',
+      price: Number(btn.getAttribute('data-price') || 0),
+      duration: btn.getAttribute('data-duration') || '',
+      email: user.email
+    };
+
+    if (window.SwiftGoAuth && typeof window.SwiftGoAuth.addToCart === 'function') {
+      window.SwiftGoAuth.addToCart(item);
+      alert(`Đã thêm "${item.name}" vào giỏ hàng của bạn.`);
+    } else {
+      const key = 'swiftgo_cart';
+      const raw = localStorage.getItem(key);
+      const cart = raw ? JSON.parse(raw) : [];
+      cart.push(item);
+      localStorage.setItem(key, JSON.stringify(cart));
+      alert(`Đã thêm "${item.name}" vào giỏ hàng của bạn.`);
+    }
+  } catch (err) {
+    console.error('Add tour error:', err);
+    alert('Có lỗi khi thêm vào giỏ. Vui lòng thử lại.');
+  }
+});
+</script>
+</main>
+</body>
+</html>
+

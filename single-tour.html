@@ -1,0 +1,129 @@
+﻿<?php 
+include __DIR__ . '/header.html';
+// Static single tour page - no loop
+?>
+<section class="container">
+  <div class="tour-hero">
+    <div>
+      <?php if (has_post_thumbnail()){ the_post_thumbnail('large'); } else { ?>
+        <img src="https://picsum.photos/seed/t<?php echo get_the_ID(); ?>/800/500" alt="<?php the_title_attribute(); ?>" />
+      <?php } ?>
+      <?php
+        $lat = get_post_meta(get_the_ID(),'lat',true);
+        $lng = get_post_meta(get_the_ID(),'lng',true);
+        $location = get_post_meta(get_the_ID(),'location',true);
+        $map_q = $location ? urlencode($location) : urlencode(get_the_title());
+      ?>
+      <iframe class="map-embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=<?php echo $lat && $lng ? $lat . ',' . $lng : $map_q; ?>"></iframe>
+    </div>
+    <div class="tour-summary">
+      <h1><?php the_title(); ?></h1>
+      <button id="fav-btn" class="btn btn-ghost" style="align-self:flex-start" data-tour-id="<?php echo get_the_ID(); ?>">❤ Yêu thích</button>
+      <p><?php echo get_the_excerpt(); ?></p>
+      <?php $price = floatval(get_post_meta(get_the_ID(),'price_per_person',true)); ?>
+      <div class="tour-price">Giá từ: <?php echo $price ? number_format($price,0,',','.') . '₫ / người' : 'Liên hệ'; ?></div>
+      <div class="tour-meta">
+        <span>Thời gian: <?php echo esc_html(get_post_meta(get_the_ID(),'duration_days',true)); ?> ngày</span>
+        <span>Khởi hành: <?php echo esc_html(get_post_meta(get_the_ID(),'start_dates',true)); ?></span>
+      </div>
+      <div class="tour-tabs">
+        <button class="tour-tab active">Lịch trình</button>
+        <button class="tour-tab">Bao gồm</button>
+        <button class="tour-tab">Không bao gồm</button>
+        <button class="tour-tab">Chính sách hủy</button>
+      </div>
+      <div class="itinerary">
+        <?php
+          $it = get_post_meta(get_the_ID(),'itinerary',true);
+          if ($it){
+            $lines = explode("\n", $it);
+            $day = 1;
+            foreach($lines as $line){ if (trim($line)){ echo '<div class="day"><strong>Ngày ' . $day . ':</strong> ' . esc_html($line) . '</div>'; $day++; } }
+          } else {
+            echo '<div class="day">Lịch trình sẽ được cập nhật.</div>';
+          }
+        ?>
+      </div>
+      <div class="booking">
+        <form id="tour-booking-form" data-tour-id="<?php echo get_the_ID(); ?>" data-price="<?php echo $price; ?>">
+          <div class="row">
+            <div>
+              <label>Họ tên</label>
+              <input id="bk-name" type="text" required />
+            </div>
+            <div>
+              <label>Email</label>
+              <input id="bk-email" type="email" required />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Điện thoại</label>
+              <input id="bk-phone" type="text" />
+            </div>
+            <div>
+              <label>Ngày khởi hành</label>
+              <input id="bk-start" type="date" required />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Người lớn</label>
+              <input id="bk-adults" type="number" min="1" value="1" />
+            </div>
+            <div>
+              <label>Trẻ em</label>
+              <input id="bk-children" type="number" min="0" value="0" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Thanh toán</label>
+              <select id="bk-payment">
+                <option value="momo">Momo</option>
+                <option value="zalopay">ZaloPay</option>
+                <option value="vnpay">VNPAY</option>
+                <option value="card">Thẻ (Visa/Master)</option>
+                <option value="bank">Ngân hàng nội địa</option>
+                <option value="office">Thanh toán tại văn phòng</option>
+              </select>
+            </div>
+            <div>
+              <label>Tổng tiền ước tính</label>
+              <div id="bk-total" class="total">0₫</div>
+            </div>
+          </div>
+          <div class="actions">
+            <button id="bk-submit" class="btn btn-primary" type="submit">Đặt tour ngay</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <?php the_content(); ?>
+  </div>
+
+  <?php
+    // JSON-LD Schema: TouristTrip + Offer
+    $schema = [
+      '@context' => 'https://schema.org',
+      '@type' => 'TouristTrip',
+      'name' => get_the_title(),
+      'description' => get_the_excerpt(),
+      'image' => get_the_post_thumbnail_url(get_the_ID(),'large'),
+      'itinerary' => get_post_meta(get_the_ID(),'itinerary',true),
+      'offers' => [
+        '@type' => 'Offer',
+        'priceCurrency' => 'VND',
+        'price' => $price ?: 0,
+        'availability' => 'https://schema.org/InStock',
+        'url' => get_permalink(),
+      ],
+    ];
+  ?>
+  <script type="application/ld+json"><?php echo json_encode($schema); ?></script>
+</section>
+<?php include __DIR__ . '/footer.html'; ?>
+

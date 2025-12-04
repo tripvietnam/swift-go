@@ -1,0 +1,742 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "category": "accommodation",
+      "name": "Dịch vụ lưu trú",
+      "description": "Khách sạn, resort, homestay, villa và căn hộ dịch vụ",
+      "icon": "assets/image/icon.jpg",
+      "priceRange": "300.000₫ - 15.000.000₫",
+      "items": [
+        {
+          "id": 101,
+          "name": "Khách sạn Skyline Grand",
+          "location": "Quận 1, TP. HCM",
+          "rating": 9.2,
+          "reviews": 1245,
+          "price": 1250000,
+          "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["WiFi miễn phí", "Bể bơi", "Gym", "Spa"],
+          "description": "Khách sạn 5 sao sang trọng với tầm nhìn toàn cảnh thành phố"
+        },
+        {
+          "id": 102,
+          "name": "Resort Biển Xanh",
+          "location": "Nha Trang, Khánh Hòa",
+          "rating": 8.9,
+          "reviews": 832,
+          "price": 2050000,
+          "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bãi biển riêng", "All-inclusive", "Bar", "Nhà hàng"],
+          "description": "Resort 5 sao view biển với dịch vụ trọn gói"
+        },
+        {
+          "id": 103,
+          "name": "Homestay Đồi Thông",
+          "location": "Đà Lạt, Lâm Đồng",
+          "rating": 9.5,
+          "reviews": 413,
+          "price": 850000,
+          "image": "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Vườn", "BBQ", "View núi", "Bếp chung"],
+          "description": "Homestay ấm cúng giữa rừng thông với view núi tuyệt đẹp"
+        },
+        {
+          "id": 104,
+          "name": "Khách sạn Mường Thanh Luxury",
+          "location": "Đà Nẵng, Đà Nẵng",
+          "rating": 8.8,
+          "reviews": 2134,
+          "price": 1800000,
+          "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View biển", "Bể bơi vô cực", "Spa", "Nhà hàng"],
+          "description": "Khách sạn 5 sao view biển Mỹ Khê với dịch vụ đẳng cấp"
+        },
+        {
+          "id": 105,
+          "name": "Villa Ven Biển Vũng Tàu",
+          "location": "Vũng Tàu, Bà Rịa - Vũng Tàu",
+          "rating": 9.0,
+          "reviews": 567,
+          "price": 3200000,
+          "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bể bơi riêng", "Bãi biển riêng", "BBQ", "4 phòng ngủ"],
+          "description": "Villa sang trọng view biển, phù hợp gia đình và nhóm bạn"
+        },
+        {
+          "id": 106,
+          "name": "Khách sạn Golden Lotus",
+          "location": "Hà Nội, Hà Nội",
+          "rating": 8.6,
+          "reviews": 1834,
+          "price": 980000,
+          "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Trung tâm phố cổ", "WiFi", "Bữa sáng", "Máy lạnh"],
+          "description": "Khách sạn 3 sao giữa lòng phố cổ Hà Nội"
+        },
+        {
+          "id": 107,
+          "name": "Resort Phú Quốc Pearl",
+          "location": "Phú Quốc, Kiên Giang",
+          "rating": 9.3,
+          "reviews": 3421,
+          "price": 4500000,
+          "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["All-inclusive", "Bãi biển riêng", "Spa", "Câu lạc bộ trẻ em"],
+          "description": "Resort 5 sao trên đảo ngọc với trải nghiệm nghỉ dưỡng trọn gói"
+        },
+        {
+          "id": 108,
+          "name": "Homestay Cổ Thành Huế",
+          "location": "Huế, Thừa Thiên Huế",
+          "rating": 8.9,
+          "reviews": 623,
+          "price": 650000,
+          "image": "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Gần đại nội", "Xe đạp miễn phí", "Bữa sáng", "WiFi"],
+          "description": "Homestay phong cách cổ kính gần các di tích lịch sử"
+        },
+        {
+          "id": 109,
+          "name": "Khách sạn Liberty Central",
+          "location": "Quận 1, TP. HCM",
+          "rating": 8.7,
+          "reviews": 2876,
+          "price": 1450000,
+          "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Rooftop bar", "Bể bơi", "Gym", "Trung tâm thành phố"],
+          "description": "Khách sạn 4 sao hiện đại giữa lòng Sài Gòn"
+        },
+        {
+          "id": 110,
+          "name": "Villa Sapa Valley",
+          "location": "Sa Pa, Lào Cai",
+          "rating": 9.1,
+          "reviews": 892,
+          "price": 2800000,
+          "image": "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View núi", "Lò sưởi", "Ban công", "3 phòng ngủ"],
+          "description": "Villa ấm áp với view ruộng bậc thang tuyệt đẹp"
+        },
+        {
+          "id": 111,
+          "name": "Khách sạn Bamboo Green Đà Nẵng",
+          "location": "Đà Nẵng, Đà Nẵng",
+          "rating": 8.4,
+          "reviews": 1456,
+          "price": 1100000,
+          "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Gần biển Mỹ Khê", "WiFi", "Bể bơi", "Nhà hàng"],
+          "description": "Khách sạn 3 sao cách biển 5 phút đi bộ"
+        },
+        {
+          "id": 112,
+          "name": "Resort Cam Ranh Riviera",
+          "location": "Cam Ranh, Khánh Hòa",
+          "rating": 9.4,
+          "reviews": 1723,
+          "price": 3800000,
+          "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Beach club", "Sân golf", "Spa", "5 nhà hàng"],
+          "description": "Resort sang trọng với bãi biển riêng và sân golf 18 lỗ"
+        },
+        {
+          "id": 113,
+          "name": "Homestay Mộc Châu Highland",
+          "location": "Mộc Châu, Sơn La",
+          "rating": 8.8,
+          "reviews": 534,
+          "price": 550000,
+          "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View đồi chè", "Bữa sáng", "Xe đạp", "BBQ"],
+          "description": "Homestay giữa đồi chè xanh mướt với không khí trong lành"
+        },
+        {
+          "id": 114,
+          "name": "Khách sạn Hạ Long Palace",
+          "location": "Hạ Long, Quảng Ninh",
+          "rating": 8.5,
+          "reviews": 1967,
+          "price": 1350000,
+          "image": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View vịnh", "Bể bơi", "Spa", "Tour du thuyền"],
+          "description": "Khách sạn 4 sao view vịnh Hạ Long tuyệt đẹp"
+        },
+        {
+          "id": 115,
+          "name": "Villa Hội An Riverside",
+          "location": "Hội An, Quảng Nam",
+          "rating": 9.2,
+          "reviews": 1089,
+          "price": 2600000,
+          "image": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bên sông", "Bể bơi", "Xe đạp", "Gần phố cổ"],
+          "description": "Villa phong cách Hội An bên bờ sông thơ mộng"
+        },
+        {
+          "id": 116,
+          "name": "Khách sạn Sunrise Nha Trang",
+          "location": "Nha Trang, Khánh Hòa",
+          "rating": 8.3,
+          "reviews": 1234,
+          "price": 890000,
+          "image": "https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View biển", "WiFi", "Bữa sáng", "Bể bơi"],
+          "description": "Khách sạn 3 sao view biển Nha Trang giá tốt"
+        },
+        {
+          "id": 117,
+          "name": "Resort Mũi Né Paradise",
+          "location": "Phan Thiết, Bình Thuận",
+          "rating": 8.9,
+          "reviews": 1567,
+          "price": 2100000,
+          "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bãi biển riêng", "Windsurf", "Spa", "3 bể bơi"],
+          "description": "Resort nghỉ dưỡng bên bãi biển Mũi Né đẹp nhất"
+        },
+        {
+          "id": 118,
+          "name": "Homestay Cát Bà Ocean View",
+          "location": "Cát Bà, Hải Phòng",
+          "rating": 8.7,
+          "reviews": 456,
+          "price": 750000,
+          "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View vịnh", "Ban công", "Bữa sáng", "Tour kayak"],
+          "description": "Homestay view vịnh Lan Hạ tuyệt đẹp"
+        },
+        {
+          "id": 119,
+          "name": "Khách sạn Imperial Huế",
+          "location": "Huế, Thừa Thiên Huế",
+          "rating": 9.0,
+          "reviews": 1890,
+          "price": 1550000,
+          "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Gần Đại Nội", "Spa", "Nhà hàng", "Bể bơi"],
+          "description": "Khách sạn 4 sao phong cách hoàng gia Huế"
+        },
+        {
+          "id": 120,
+          "name": "Villa Đà Lạt Dreamy",
+          "location": "Đà Lạt, Lâm Đồng",
+          "rating": 9.3,
+          "reviews": 723,
+          "price": 3500000,
+          "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Lò sưởi", "View hồ", "BBQ", "4 phòng ngủ"],
+          "description": "Villa sang trọng view hồ Tuyền Lâm"
+        },
+        {
+          "id": 121,
+          "name": "Khách sạn Majestic Sài Gòn",
+          "location": "Quận 1, TP. HCM",
+          "rating": 9.1,
+          "reviews": 3456,
+          "price": 2200000,
+          "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bên sông Sài Gòn", "Spa", "Rooftop bar", "5 sao"],
+          "description": "Khách sạn lịch sử 5 sao bên bờ sông Sài Gòn"
+        },
+        {
+          "id": 122,
+          "name": "Resort Côn Đảo Paradise",
+          "location": "Côn Đảo, Bà Rịa - Vũng Tàu",
+          "rating": 9.5,
+          "reviews": 892,
+          "price": 5500000,
+          "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["All-inclusive", "Lặn biển", "Spa", "Bãi biển riêng"],
+          "description": "Resort cao cấp trên đảo Côn Đảo hoang sơ"
+        },
+        {
+          "id": 123,
+          "name": "Homestay Ninh Bình Valley",
+          "location": "Ninh Bình, Ninh Bình",
+          "rating": 8.8,
+          "reviews": 567,
+          "price": 580000,
+          "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View núi đá", "Xe đạp", "Bữa sáng", "Tour đò"],
+          "description": "Homestay giữa cánh đồng lúa Tam Cốc"
+        },
+        {
+          "id": 124,
+          "name": "Khách sạn Quy Nhơn Beach",
+          "location": "Quy Nhơn, Bình Định",
+          "rating": 8.6,
+          "reviews": 1123,
+          "price": 1280000,
+          "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View biển", "Bể bơi", "WiFi", "Nhà hàng"],
+          "description": "Khách sạn 4 sao view biển Quy Nhơn yên bình"
+        },
+        {
+          "id": 125,
+          "name": "Villa Phú Quốc Sunset",
+          "location": "Phú Quốc, Kiên Giang",
+          "rating": 9.4,
+          "reviews": 1456,
+          "price": 4200000,
+          "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bể bơi riêng", "View hoàng hôn", "5 phòng ngủ", "Bếp đầy đủ"],
+          "description": "Villa 5 phòng ngủ view hoàng hôn tuyệt đẹp"
+        },
+        {
+          "id": 126,
+          "name": "Khách sạn Hà Giang Mountain",
+          "location": "Hà Giang, Hà Giang",
+          "rating": 8.5,
+          "reviews": 678,
+          "price": 720000,
+          "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View núi", "Bữa sáng", "Tour phượt", "WiFi"],
+          "description": "Khách sạn giữa núi đá Hà Giang hùng vĩ"
+        },
+        {
+          "id": 127,
+          "name": "Resort Vĩnh Hy Bay",
+          "location": "Ninh Thuận, Ninh Thuận",
+          "rating": 9.0,
+          "reviews": 834,
+          "price": 2800000,
+          "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Vịnh riêng", "Lặn ngắm san hô", "Spa", "BBQ"],
+          "description": "Resort nghỉ dưỡng tại vịnh Vĩnh Hy tuyệt đẹp"
+        },
+        {
+          "id": 128,
+          "name": "Homestay Pù Luông Retreat",
+          "location": "Pù Luông, Thanh Hóa",
+          "rating": 9.2,
+          "reviews": 445,
+          "price": 680000,
+          "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View ruộng bậc thang", "Nhà sàn", "Bữa sáng", "Trekking"],
+          "description": "Homestay nhà sàn giữa thiên nhiên Pù Luông"
+        },
+        {
+          "id": 129,
+          "name": "Khách sạn Buôn Ma Thuột Highland",
+          "location": "Buôn Ma Thuột, Đắk Lắk",
+          "rating": 8.4,
+          "reviews": 567,
+          "price": 850000,
+          "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Trung tâm", "WiFi", "Bể bơi", "Nhà hàng"],
+          "description": "Khách sạn 3 sao giữa thủ phủ cà phê Tây Nguyên"
+        },
+        {
+          "id": 130,
+          "name": "Villa Hồ Tràm Beach",
+          "location": "Hồ Tràm, Bà Rịa - Vũng Tàu",
+          "rating": 8.9,
+          "reviews": 1234,
+          "price": 3100000,
+          "image": "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bãi biển riêng", "Bể bơi", "BBQ", "3 phòng ngủ"],
+          "description": "Villa view biển Hồ Tràm cho gia đình"
+        },
+        {
+          "id": 131,
+          "name": "Khách sạn Đồng Hới Center",
+          "location": "Đồng Hới, Quảng Bình",
+          "rating": 8.3,
+          "reviews": 789,
+          "price": 920000,
+          "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Gần bãi biển", "WiFi", "Bữa sáng", "Tour động Phong Nha"],
+          "description": "Khách sạn 3 sao gần động Phong Nha - Kẻ Bàng"
+        },
+        {
+          "id": 132,
+          "name": "Resort Lăng Cô Bay",
+          "location": "Lăng Cô, Thừa Thiên Huế",
+          "rating": 9.3,
+          "reviews": 1678,
+          "price": 3900000,
+          "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Vịnh riêng", "Spa", "Sân golf", "All-inclusive"],
+          "description": "Resort 5 sao view vịnh Lăng Cô tuyệt mỹ"
+        },
+        {
+          "id": 133,
+          "name": "Homestay Mù Cang Chải Rice Terrace",
+          "location": "Mù Cang Chải, Yên Bái",
+          "rating": 9.0,
+          "reviews": 456,
+          "price": 520000,
+          "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View ruộng bậc thang", "Bữa sáng", "Trekking", "WiFi"],
+          "description": "Homestay giữa ruộng bậc thang Mù Cang Chải"
+        },
+        {
+          "id": 134,
+          "name": "Khách sạn Rạch Giá Waterfront",
+          "location": "Rạch Giá, Kiên Giang",
+          "rating": 8.2,
+          "reviews": 567,
+          "price": 780000,
+          "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bên biển", "WiFi", "Nhà hàng", "Bể bơi"],
+          "description": "Khách sạn view biển gần bến phà Phú Quốc"
+        },
+        {
+          "id": 135,
+          "name": "Villa Cần Thơ Riverside",
+          "location": "Cần Thơ, Cần Thơ",
+          "rating": 8.8,
+          "reviews": 890,
+          "price": 2400000,
+          "image": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bên sông Hậu", "Bể bơi", "Tour chợ nổi", "4 phòng ngủ"],
+          "description": "Villa bên sông Hậu phong cách miền Tây"
+        },
+        {
+          "id": 136,
+          "name": "Khách sạn Pleiku Central",
+          "location": "Pleiku, Gia Lai",
+          "rating": 8.1,
+          "reviews": 456,
+          "price": 690000,
+          "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Trung tâm", "WiFi", "Bữa sáng", "Máy lạnh"],
+          "description": "Khách sạn giữa lòng cao nguyên Gia Lai"
+        },
+        {
+          "id": 137,
+          "name": "Resort Bãi Dài Cam Ranh",
+          "location": "Cam Ranh, Khánh Hòa",
+          "rating": 9.2,
+          "reviews": 2134,
+          "price": 4100000,
+          "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bãi biển 7km", "Spa", "Golf", "6 nhà hàng"],
+          "description": "Resort sang trọng trên bãi biển dài nhất Việt Nam"
+        },
+        {
+          "id": 138,
+          "name": "Homestay Mai Châu Green Valley",
+          "location": "Mai Châu, Hòa Bình",
+          "rating": 8.9,
+          "reviews": 623,
+          "price": 590000,
+          "image": "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Nhà sàn", "View ruộng", "Xe đạp", "Bữa sáng"],
+          "description": "Homestay nhà sàn người Thái tại Mai Châu"
+        },
+        {
+          "id": 139,
+          "name": "Khách sạn Tuy Hòa Ocean",
+          "location": "Tuy Hòa, Phú Yên",
+          "rating": 8.5,
+          "reviews": 1012,
+          "price": 1050000,
+          "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View biển", "Bể bơi", "WiFi", "Nhà hàng"],
+          "description": "Khách sạn view vịnh Xuân Đài đẹp như tranh"
+        },
+        {
+          "id": 140,
+          "name": "Villa Đồng Nai Forest",
+          "location": "Đồng Nai, Đồng Nai",
+          "rating": 8.7,
+          "reviews": 456,
+          "price": 2200000,
+          "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Giữa rừng", "Bể bơi", "BBQ", "3 phòng ngủ"],
+          "description": "Villa nghỉ dưỡng giữa rừng cây xanh mát"
+        },
+        {
+          "id": 141,
+          "name": "Khách sạn Vĩnh Long Mekong",
+          "location": "Vĩnh Long, Vĩnh Long",
+          "rating": 8.0,
+          "reviews": 345,
+          "price": 650000,
+          "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bên sông", "WiFi", "Tour chợ nổi", "Bữa sáng"],
+          "description": "Khách sạn 3 sao bên sông Tiền miền Tây"
+        },
+        {
+          "id": 142,
+          "name": "Resort Nam Du Island",
+          "location": "Nam Du, Kiên Giang",
+          "rating": 9.1,
+          "reviews": 789,
+          "price": 3300000,
+          "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Đảo hoang sơ", "Lặn biển", "BBQ", "Bãi biển riêng"],
+          "description": "Resort trên quần đảo Nam Du hoang sơ"
+        },
+        {
+          "id": 143,
+          "name": "Homestay Bắc Hà Highland",
+          "location": "Bắc Hà, Lào Cai",
+          "rating": 8.6,
+          "reviews": 412,
+          "price": 480000,
+          "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View núi", "Chợ phiên", "Bữa sáng", "Trekking"],
+          "description": "Homestay người H'Mông gần chợ phiên Bắc Hà"
+        },
+        {
+          "id": 144,
+          "name": "Khách sạn Châu Đốc Victoria",
+          "location": "Châu Đốc, An Giang",
+          "rating": 8.8,
+          "reviews": 1123,
+          "price": 1350000,
+          "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bên sông Hậu", "Spa", "Bể bơi", "Tour miếu Bà Chúa Xứ"],
+          "description": "Khách sạn 4 sao phong cách đồng bằng sông Cửu Long"
+        },
+        {
+          "id": 145,
+          "name": "Villa Phan Rang Beach",
+          "location": "Phan Rang, Ninh Thuận",
+          "rating": 8.9,
+          "reviews": 678,
+          "price": 2700000,
+          "image": "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View biển", "Bể bơi riêng", "BBQ", "4 phòng ngủ"],
+          "description": "Villa view biển xanh của vùng đất nắng gió"
+        },
+        {
+          "id": 146,
+          "name": "Khách sạn Hòa Bình City",
+          "location": "Hòa Bình, Hòa Bình",
+          "rating": 7.9,
+          "reviews": 456,
+          "price": 620000,
+          "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Trung tâm", "WiFi", "Nhà hàng", "Máy lạnh"],
+          "description": "Khách sạn giá tốt tại thành phố Hòa Bình"
+        },
+        {
+          "id": 147,
+          "name": "Resort Đảo Ngọc Xanh",
+          "location": "Phú Quốc, Kiên Giang",
+          "rating": 9.6,
+          "reviews": 2890,
+          "price": 6200000,
+          "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["All-inclusive", "Spa", "Golf", "10 nhà hàng"],
+          "description": "Resort 5 sao sang trọng nhất Phú Quốc"
+        },
+        {
+          "id": 148,
+          "name": "Homestay Tam Đảo Misty",
+          "location": "Tam Đảo, Vĩnh Phúc",
+          "rating": 8.8,
+          "reviews": 567,
+          "price": 710000,
+          "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View núi", "Lò sưởi", "Bữa sáng", "Ban công"],
+          "description": "Homestay ấm áp giữa sương mù Tam Đảo"
+        },
+        {
+          "id": 149,
+          "name": "Khách sạn Đà Nẵng Luxury Ocean",
+          "location": "Đà Nẵng, Đà Nẵng",
+          "rating": 9.0,
+          "reviews": 3456,
+          "price": 2150000,
+          "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["View biển Mỹ Khê", "Spa", "Rooftop pool", "5 sao"],
+          "description": "Khách sạn 5 sao mặt tiền biển Mỹ Khê đẹp nhất"
+        },
+        {
+          "id": 150,
+          "name": "Villa Long Hải Seaside",
+          "location": "Long Hải, Bà Rịa - Vũng Tàu",
+          "rating": 8.6,
+          "reviews": 890,
+          "price": 2900000,
+          "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+          "amenities": ["Bãi biển riêng", "Bể bơi", "BBQ", "5 phòng ngủ"],
+          "description": "Villa gia đình view biển Long Hải yên tĩnh"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "category": "transportation",
+      "name": "Dịch vụ đi lại",
+      "description": "Vé máy bay, xe khách, taxi, thuê xe tự lái",
+      "icon": "assets/image/icon.jpg",
+      "priceRange": "50.000₫ - 8.000.000₫",
+      "items": [
+        {
+          "id": 201,
+          "name": "Vé máy bay TP.HCM - Hà Nội",
+          "airline": "Vietnam Airlines",
+          "duration": "2 giờ 15 phút",
+          "type": "Bay thẳng",
+          "price": 1850000,
+          "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80",
+          "departureTime": "08:30",
+          "arrivalTime": "10:45",
+          "luggage": "23kg hành lý ký gửi"
+        },
+        {
+          "id": 202,
+          "name": "Xe limousine Hà Nội - Hạ Long",
+          "provider": "Hoàng Long Limousine",
+          "duration": "3 giờ",
+          "type": "Xe giường nằm",
+          "price": 350000,
+          "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80",
+          "departureTime": "07:00",
+          "arrivalTime": "10:00",
+          "amenities": ["Nước uống", "Wifi", "Giường nằm"]
+        },
+        {
+          "id": 203,
+          "name": "Thuê xe tự lái 7 chỗ",
+          "provider": "Swift Car Rental",
+          "model": "Toyota Fortuner",
+          "type": "SUV 7 chỗ",
+          "price": 1200000,
+          "priceUnit": "ngày",
+          "image": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80",
+          "insurance": "Bảo hiểm toàn diện",
+          "fuel": "Xăng đầy bình"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "category": "dining",
+      "name": "Dịch vụ ăn uống",
+      "description": "Nhà hàng, quán café, buffet, ẩm thực địa phương",
+      "icon": "assets/image/icon.jpg",
+      "priceRange": "50.000₫ - 2.000.000₫",
+      "items": [
+        {
+          "id": 301,
+          "name": "Nhà hàng Lã Vọng",
+          "cuisine": "Món nướng Việt Nam",
+          "location": "Hà Nội",
+          "rating": 9.1,
+          "reviews": 567,
+          "price": 350000,
+          "priceUnit": "người",
+          "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+          "specialties": ["Thịt nướng", "Bún chả", "Nem cua bể"],
+          "openHours": "10:00 - 22:00"
+        },
+        {
+          "id": 302,
+          "name": "Buffet Hải Sản Phố Biển",
+          "cuisine": "Hải sản tươi sống",
+          "location": "Nha Trang",
+          "rating": 8.7,
+          "reviews": 892,
+          "price": 599000,
+          "priceUnit": "người",
+          "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80",
+          "specialties": ["Tôm hùm", "Cua hoàng đế", "Sashimi"],
+          "openHours": "17:00 - 22:00"
+        },
+        {
+          "id": 303,
+          "name": "Café View Đà Lạt",
+          "cuisine": "Café & Bánh ngọt",
+          "location": "Đà Lạt",
+          "rating": 9.3,
+          "reviews": 723,
+          "price": 120000,
+          "priceUnit": "người",
+          "image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80",
+          "specialties": ["Cà phê phin", "Bánh bông lan trứng muối", "Trà Atiso"],
+          "openHours": "07:00 - 23:00"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "category": "entertainment",
+      "name": "Dịch vụ giải trí",
+      "description": "Vui chơi, thể thao, spa, tour tham quan",
+      "icon": "assets/image/icon.jpg",
+      "priceRange": "100.000₫ - 3.000.000₫",
+      "items": [
+        {
+          "id": 401,
+          "name": "Vé Vinpearl Land",
+          "type": "Công viên giải trí",
+          "location": "Nha Trang",
+          "rating": 8.8,
+          "reviews": 1534,
+          "price": 850000,
+          "priceUnit": "người",
+          "image": "https://images.unsplash.com/photo-1513889961551-628c1e5e9d46?auto=format&fit=crop&w=1200&q=80",
+          "includes": ["Vé tham quan", "Trò chơi không giới hạn", "Show nghệ thuật"],
+          "openHours": "08:00 - 21:00"
+        },
+        {
+          "id": 402,
+          "name": "Spa & Massage Zen",
+          "type": "Chăm sóc sức khỏe",
+          "location": "Đà Nẵng",
+          "rating": 9.4,
+          "reviews": 456,
+          "price": 650000,
+          "priceUnit": "người",
+          "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80",
+          "services": ["Massage body", "Chăm sóc da mặt", "Ngâm chân thảo dược"],
+          "duration": "90 phút"
+        },
+        {
+          "id": 403,
+          "name": "Tour Vịnh Hạ Long",
+          "type": "Du thuyền & Tham quan",
+          "location": "Quảng Ninh",
+          "rating": 9.6,
+          "reviews": 2103,
+          "price": 1800000,
+          "priceUnit": "người",
+          "image": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80",
+          "includes": ["Du thuyền 2 ngày 1 đêm", "3 bữa ăn", "Tham quan động", "Kayak"],
+          "duration": "2 ngày 1 đêm"
+        }
+      ]
+    }
+  ],
+  "destinations": [
+    {
+      "id": "hcm",
+      "name": "TP. Hồ Chí Minh",
+      "country": "Việt Nam",
+      "image": "https://images.unsplash.com/photo-1542621334-a254cf47733d?auto=format&fit=crop&w=1200&q=80",
+      "description": "Thành phố sôi động với ẩm thực đa dạng và cuộc sống nhộn nhịp",
+      "story": "Sài Gòn - thành phố mang tên Bác, nơi dòng chảy lịch sử giao thoa với nhịp sống hiện đại. Từ những con phố cổ kính như Đồng Khởi, đến những tòa nhà chọc trời lung linh, mỗi góc phố đều kể một câu chuyện riêng."
+    },
+    {
+      "id": "hanoi",
+      "name": "Hà Nội",
+      "country": "Việt Nam",
+      "image": "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1200&q=80",
+      "description": "Thủ đô ngàn năm văn hiến với những di tích lịch sử",
+      "story": "Hà Nội, thành phố của những mùa cũ. Nơi hồ Gươm phản chiếu cầu Thê Húc đỏ thắm, nơi phố cổ vẫn vang lên tiếng rao hàng rong, nơi mỗi góc phố đều thấm đẫm hương vị thời gian."
+    },
+    {
+      "id": "danang",
+      "name": "Đà Nẵng",
+      "country": "Việt Nam",
+      "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
+      "description": "Thành phố đáng sống với biển xanh và cầu Rồng nổi tiếng",
+      "story": "Đà Nẵng - thành phố của những cây cầu. Cầu Rồng phun lửa, cầu Tình Yêu lãng mạn, và bãi biển Mỹ Khê xanh ngắt. Đây là nơi thiên nhiên và con người hòa quyện hoàn hảo."
+    },
+    {
+      "id": "nhatrang",
+      "name": "Nha Trang",
+      "country": "Việt Nam",
+      "image": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1200&q=80",
+      "description": "Thiên đường biển đảo với làn nước trong xanh",
+      "story": "Nha Trang - vịnh biển đẹp nhất Việt Nam. Nơi những con sóng nhẹ nhàng vỗ về bờ cát trắng, nơi ánh nắng vàng lan tỏa trên mặt nước, tạo nên bức tranh thiên nhiên tuyệt mỹ."
+    }
+  ]
+}

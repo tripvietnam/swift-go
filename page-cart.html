@@ -1,0 +1,206 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swift Go - Giỏ hàng</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/chat.css" />
+  <link rel="stylesheet" href="assets/css/auth.css" />
+</head>
+<body class="site">
+
+<div id="header-placeholder"></div>
+
+<main class="container" style="min-height:60vh;padding:40px 0;">
+  <div class="section-head">
+    <h1>Giỏ hàng của bạn</h1>
+    <p>Quản lý các đặt phòng đã chọn</p>
+  </div>
+
+  <div id="cart-container" style="margin-top:24px;">
+    <div id="cart-empty" style="display:none;text-align:center;padding:60px 20px;">
+      <svg width="120" height="120" viewBox="0 0 24 24" fill="none" style="margin:0 auto 20px;opacity:0.3;">
+        <circle cx="9" cy="21" r="1" fill="currentColor"/>
+        <circle cx="20" cy="21" r="1" fill="currentColor"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <h3 style="margin-bottom:12px;color:#6B6B6B;">Giỏ hàng trống</h3>
+      <p style="color:#6B6B6B;margin-bottom:24px;">Bạn chưa có đặt phòng nào trong giỏ hàng</p>
+      <a href="index.html" class="btn btn-primary">Khám phá chỗ nghỉ</a>
+    </div>
+
+    <div id="cart-items" style="display:none;">
+      <div class="cart-list" id="cart-list"></div>
+      
+      <div class="cart-summary" style="background:#f8f9fa;border-radius:12px;padding:24px;margin-top:32px;">
+        <h3 style="margin-bottom:20px;">Tổng quan đơn hàng</h3>
+        <div class="price-row" style="display:flex;justify-content:space-between;padding:12px 0;font-size:15px;">
+          <span>Tổng số phòng:</span>
+          <span id="total-items">0</span>
+        </div>
+        <div class="price-row" style="display:flex;justify-content:space-between;padding:12px 0;font-size:15px;">
+          <span>Tạm tính:</span>
+          <span id="subtotal">0₫</span>
+        </div>
+        <div class="price-row total" style="display:flex;justify-content:space-between;padding:16px 0;font-size:20px;font-weight:700;color:#003B95;border-top:2px solid #dee2e6;margin-top:12px;">
+          <span>Tổng cộng:</span>
+          <span id="total">0₫</span>
+        </div>
+        <button class="btn btn-primary btn-block" style="margin-top:24px;width:100%;padding:14px;" onclick="checkout()">
+          Tiến hành thanh toán
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="assets/js/components.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/chat.js"></script>
+<script src="assets/js/img-fallback.js"></script>
+
+<script>
+function formatPrice(price) {
+  return price.toLocaleString('vi-VN') + '₫';
+}
+
+function calculateNights(checkIn, checkOut) {
+  if (!checkIn || !checkOut) return 1;
+  const d1 = new Date(checkIn);
+  const d2 = new Date(checkOut);
+  const diff = d2 - d1;
+  return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+}
+
+function getCart() {
+  const cartStr = localStorage.getItem('swiftgo_cart') || '[]';
+  return JSON.parse(cartStr);
+}
+
+function saveCart(cart) {
+  localStorage.setItem('swiftgo_cart', JSON.stringify(cart));
+  window.SwiftGoAuth && window.SwiftGoAuth.updateCartCount();
+}
+
+function removeFromCart(itemId) {
+  if (!confirm('Bạn có chắc muốn xóa phòng này khỏi giỏ hàng?')) return;
+  
+  const cart = getCart();
+  const newCart = cart.filter(item => item.id !== itemId);
+  saveCart(newCart);
+  renderCart();
+}
+
+function renderCart() {
+  const user = window.SwiftGoAuth?.getCurrentUser();
+  if (!user) {
+    alert('Vui lòng đăng nhập để xem giỏ hàng!');
+    window.location.href = 'index.html';
+    return;
+  }
+  
+  const allCart = getCart();
+  // Filter cart by current user email
+  const cart = allCart.filter(item => item.email === user.email);
+  const cartEmpty = document.getElementById('cart-empty');
+  const cartItems = document.getElementById('cart-items');
+  const cartList = document.getElementById('cart-list');
+
+  if (cart.length === 0) {
+    cartEmpty.style.display = 'block';
+    cartItems.style.display = 'none';
+    return;
+  }
+
+  cartEmpty.style.display = 'none';
+  cartItems.style.display = 'block';
+
+  let totalPrice = 0;
+  let html = '';
+
+  cart.forEach(item => {
+    const nights = calculateNights(item.checkIn, item.checkOut);
+    const itemTotal = item.price * nights;
+    totalPrice += itemTotal;
+
+    html += `
+      <div class="cart-item" style="background:#fff;border:1px solid #e7e7e7;border-radius:12px;padding:20px;margin-bottom:16px;display:flex;gap:20px;">
+        <img src="${item.image || 'https://via.placeholder.com/150x100'}" alt="${item.name}" style="width:150px;height:100px;object-fit:cover;border-radius:8px;">
+        <div style="flex:1;">
+          <h4 style="margin:0 0 8px;font-size:18px;color:#003B95;">${item.name}</h4>
+          <p style="margin:0 0 8px;color:#6B6B6B;font-size:14px;">${item.location}</p>
+          <p style="margin:0 0 8px;color:#262626;font-size:14px;">
+            <strong>Check-in:</strong> ${item.checkIn} · <strong>Check-out:</strong> ${item.checkOut}
+          </p>
+          <p style="margin:0 0 8px;color:#262626;font-size:14px;">
+            <strong>Số đêm:</strong> ${nights} · <strong>Khách:</strong> ${item.adults} người lớn, ${item.children} trẻ em
+          </p>
+          <p style="margin:0;color:#0071C2;font-size:18px;font-weight:700;">${formatPrice(itemTotal)}</p>
+        </div>
+        <button onclick="removeFromCart(${item.id})" class="btn btn-ghost" style="align-self:flex-start;padding:8px 12px;">
+          Xóa
+        </button>
+      </div>
+    `;
+  });
+
+  cartList.innerHTML = html;
+  document.getElementById('total-items').textContent = cart.length;
+  document.getElementById('subtotal').textContent = formatPrice(totalPrice);
+  document.getElementById('total').textContent = formatPrice(totalPrice);
+}
+
+function checkout() {
+  const user = window.SwiftGoAuth?.getCurrentUser();
+  if (!user) return;
+  
+  const allCart = getCart();
+  const cart = allCart.filter(item => item.email === user.email);
+  
+  if (cart.length === 0) {
+    alert('Giỏ hàng trống!');
+    return;
+  }
+
+  alert('Chức năng thanh toán đang được phát triển.\n\nThông tin đơn hàng:\n' +
+    `Tổng số phòng: ${cart.length}\n` +
+    `Tổng tiền: ${document.getElementById('total').textContent}`
+  );
+}
+
+// Check login and render cart
+function checkAndRender() {
+  if (window.SwiftGoAuth) {
+    const user = window.SwiftGoAuth.getCurrentUser();
+    if (!user) {
+      alert('Vui lòng đăng nhập để xem giỏ hàng!');
+      window.location.href = 'index.html';
+    } else {
+      renderCart();
+    }
+  } else {
+    // Wait for auth.js to load
+    setTimeout(checkAndRender, 100);
+  }
+}
+
+// Wait for components to load before checking
+document.addEventListener('components-loaded', checkAndRender);
+// Fallback if components not used
+if (document.readyState === 'complete') {
+  setTimeout(checkAndRender, 500);
+} else {
+  window.addEventListener('load', () => {
+    setTimeout(checkAndRender, 500);
+  });
+}
+</script>
+
+</body>
+</html>
+

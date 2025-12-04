@@ -1,0 +1,80 @@
+{
+  "stories": [
+    {
+      "id": "sapa-dawn",
+      "title": "Bình minh trên ruộng bậc thang Sapa",
+      "location": "Sapa, Lào Cai",
+      "image": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80",
+      "summary": "Khoảnh khắc mặt trời nhuộm vàng từng lớp ruộng bậc thang và làn sương tan dần mở ra cả một bức tranh sống động.",
+      "narrative": [
+        "4h30 sáng, tiếng gà bản vọng lại từ xa như một chiếc đồng hồ tự nhiên đánh thức tôi. Trời còn lạnh và mặt đất ngấm hơi sương. Người H'Mông đã nhóm bếp, mùi khói gỗ quyện cùng mùi đất ẩm và lá rừng.",
+        "Khi ánh sáng đầu tiên rạch qua đường chân trời, những thửa ruộng bậc thang ngả dần sang một màu vàng nhạt, rồi vàng óng. Sương mù mỏng cuộn lại dưới thung lũng như tấm lụa bạc đang được kéo ra. Tôi nghe tiếng trẻ con cười, tiếng dao phát cỏ lách cách và tiếng bước chân người đi chợ phiên.",
+        "Một bà cụ H'Mông bảo: 'Ruộng cũng như người, phải chờ nắng đến thì mới tỉnh.' Câu nói ấy làm tôi nhận ra — hành trình này không chỉ là chụp một bức ảnh đẹp mà là chạm vào nhịp thở thật của vùng cao."
+      ],
+      "author": "Minh Anh",
+      "date": "2025-10-12",
+      "tags": ["thiên nhiên", "văn hóa", "bình minh"],
+      "readingTime": 4
+    },
+    {
+      "id": "phu-quoc-night-market",
+      "title": "Đêm chợ Phú Quốc và câu chuyện sau quầy hải sản",
+      "location": "Phú Quốc, Kiên Giang",
+      "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80",
+      "summary": "Góc nhìn khác về chợ đêm: nơi từng con ốc, con tôm đều đi cùng ký ức của người bán.",
+      "narrative": [
+        "Tôi gặp chú Tư bên quầy mực. Chú kể ngày trẻ ra biển bằng thuyền gỗ, không có máy định vị, chỉ 'ngửi gió và nhìn sao'. Mỗi con cá chú lựa hôm nay đều được phân loại bằng kinh nghiệm 30 năm.",
+        "Chợ đêm ồn ào nhưng sau lớp âm thanh đó là những đoạn đời chầm chậm. Người mua kì kèo, người bán cười xòa. Một chị trẻ đang livestream bán sò điệp vừa kể chuyện ông nội thời kháng chiến giấu thư trong hốc đá ngoài bãi.",
+        "Tôi ăn xong tô cháo hàu nóng và nghĩ: du lịch không chỉ là đến nơi đẹp mà là lắng nghe các mảnh ghép ký ức ghép thành linh hồn nơi ấy."],
+      "author": "Tuấn Võ",
+      "date": "2025-09-03",
+      "tags": ["ẩm thực", "đời sống", "chợ đêm"],
+      "readingTime": 3
+    },
+    {
+      "id": "hue-rain",
+      "title": "Cơn mưa dài ở Huế và quán cà phê trong hẻm",
+      "location": "Huế, Thừa Thiên Huế",
+      "image": "https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=1200&q=80",
+      "summary": "Một buổi chiều mưa làm chậm mọi chuyển động và mở ra không gian ký ức pha lẫn mùi cà phê rang.",
+      "narrative": [
+        "Huế mưa như thể thời gian bị kéo thành những sợi mỏng rớt xuống bất tận. Tôi trú ở quán cà phê nhỏ, tường quét vôi vàng, vài bức ảnh đen trắng treo nghiêng.",
+        "Ông chủ quán bảo quán do cha ông mở sau ngày trở về từ chiến tranh, ban đầu chỉ bán trà nóng cho người đạp xích lô. Mùi cà phê rang thủ công quyện cùng tiếng mưa làm mọi thứ trở nên sâu và lặng.",
+        "Một cô sinh viên viết nhật ký ở bàn bên, thi thoảng ngẩng lên nhìn giọt nước bám trên khung cửa. Tôi nhận ra mình đang du lịch bên trong cảm xúc, không chỉ trên địa lý."],
+      "author": "Lan Phương",
+      "date": "2025-08-21",
+      "tags": ["cà phê", "mưa", "hoài niệm"],
+      "readingTime": 5
+    },
+    {
+      "id": "hoian-lanterns",
+      "title": "Đêm thả đèn ở Phố cổ Hội An",
+      "location": "Hội An, Quảng Nam",
+      "image": "https://images.unsplash.com/photo-1585818000991-a763d8d683a8?auto=format&fit=crop&w=1200&q=80",
+      "summary": "Ánh đèn lồng không chỉ để đẹp — đó là thông điệp gửi lên dòng thời gian lặng lẽ trôi qua sông Hoài.",
+      "narrative": [
+        "Dòng sông tối dần, những chiếc thuyền gỗ bắt đầu trở thành vệt mờ với chấm sáng li ti của đèn. Một bà cụ ngồi gấp giấy dầu, tay làm nhanh hơn nhịp kể chuyện về thời phố cổ còn thưa khách.",
+        "Tôi thả chiếc đèn nhỏ, nghĩ về lời ước thầm. Mặt nước gợn nhẹ làm ánh nến chập chờn như đang thở. Khách quốc tế đứng cạnh tôi bỗng thì thầm cảm ơn vì 'đêm này không ồn như họ tưởng'.",
+        "Hội An về đêm là lớp ký ức chống lại sự vội vàng. Mỗi ánh đèn như một dấu phẩy, nhắc người ta đọc chậm lại câu chuyện cuộc sống."],
+      "author": "Quốc Bảo",
+      "date": "2025-07-15",
+      "tags": ["văn hóa", "đèn lồng", "truyền thống"],
+      "readingTime": 4
+    },
+    {
+      "id": "mekong-morning",
+      "title": "Buổi sớm trên chợ nổi Cái Răng",
+      "location": "Cần Thơ",
+      "image": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80",
+      "summary": "Sương sớm, tiếng máy nổ, mùi trái cây và giọng rao tạo nên bản nhạc thương hồ độc đáo.",
+      "narrative": [
+        "Thuyền chúng tôi len giữa hàng chục ghe lớn treo đầy 'cây bẹo' — cột chống báo hiệu hôm nay bán dứa hay khoai. Một chị bán hủ tiếu chèo sát mạn, múc tô nước lèo trong veo rồi thêm tóp mỡ vàng.",
+        "Người đàn ông trẻ nói tiếng Anh vụng về để bán xoài cho nhóm khách nước ngoài, trong khi mẹ anh phía sau đang cân chôm chôm bằng cái cân lò xo cũ. Mọi thứ giản dị mà vận hành như một guồng văn hóa lưu động.",
+        "Tôi thấy rõ: Đồng bằng không chỉ là địa hình — đó là hệ sinh thái nghề nghiệp, ký ức và sự thích nghi với nước."],
+      "author": "Hải Đăng",
+      "date": "2025-06-10",
+      "tags": ["chợ nổi", "đồng bằng", "ẩm thực"],
+      "readingTime": 4
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+/* Modal Styles - Booking & Details */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.active {
+  display: flex;
+  animation: fadeIn 0.2s ease;
+}
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+.modal-header {
+  padding: 24px;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+  border-radius: 16px 16px 0 0;
+}
+.modal-header h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #003B95;
+  font-weight: 700;
+}
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e7e7e7;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #6B6B6B;
+  transition: all 0.2s;
+}
+.modal-close:hover {
+  background: #f5f5f5;
+  border-color: #003B95;
+  color: #003B95;
+}
+.modal-body {
+  padding: 24px;
+}
+.modal-footer {
+  padding: 20px 24px;
+  border-top: 1px solid #e7e7e7;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+}
+
+/* Booking Form */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group label {
+  font-weight: 600;
+  color: #262626;
+  font-size: 14px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e7e7e7;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.2s;
+  background: #fff;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #003B95;
+  box-shadow: 0 0 0 4px rgba(0, 59, 149, 0.1);
+}
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.price-summary {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 12px;
+}
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 15px;
+}
+.price-row.total {
+  border-top: 2px solid #dee2e6;
+  margin-top: 8px;
+  padding-top: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #003B95;
+}
+
+/* Detail Modal */
+.detail-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.detail-section {
+  margin-bottom: 24px;
+}
+.detail-section h4 {
+  font-size: 18px;
+  color: #003B95;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.detail-section p {
+  color: #262626;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.amenities-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.amenity-item::before {
+  content: '✓';
+  color: #28a745;
+  font-weight: 700;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .modal {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+  .modal-header,
+  .modal-footer {
+    border-radius: 0;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .amenities-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="container footnote">© <span id="year"></span> Swift Go.</div>
+</footer>
+
+<!-- AI Chat Widget -->
+<div id="ai-chat-widget" class="ai-chat" aria-live="polite">
+  <button class="ai-chat-toggle" id="ai-chat-toggle" aria-controls="ai-chat-panel" aria-expanded="false">💬 Trợ lý AI</button>
+  <div id="ai-chat-panel" class="ai-chat-panel" role="dialog" aria-modal="false" aria-label="Trò chuyện với trợ lý du lịch AI">
+    <div class="ai-chat-header">
+      <div class="ai-chat-title">Trợ lý Du lịch AI</div>
+      <button type="button" class="ai-chat-close" id="ai-chat-close" aria-label="Đóng">×</button>
+    </div>
+    <div class="ai-chat-messages" id="ai-chat-messages" aria-label="Khu vực tin nhắn" tabindex="0"></div>
+    <form class="ai-chat-form" id="ai-chat-form" autocomplete="off">
+      <textarea id="ai-chat-input" class="ai-chat-input" rows="2" placeholder="Nhập câu hỏi: ví dụ 'Gợi ý lịch trình 3 ngày ở Đà Nẵng'" aria-label="Ô nhập câu hỏi"></textarea>
+      <div class="ai-chat-actions">
+        <button type="submit" class="btn btn-primary ai-send" aria-label="Gửi câu hỏi">Gửi</button>
+        <button type="button" class="btn ai-clear" id="ai-chat-clear" aria-label="Xóa hội thoại">Xóa</button>
+      </div>
+      <div class="ai-chat-hint">Mẹo: hỏi về gợi ý địa điểm, lịch trình, chi phí...</div>
+    </form>
+  </div>
+</div>
+
+<script>document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());</script>

@@ -1,0 +1,427 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Câu Chuyện - Swift Go</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/chat.css" />
+</head>
+<body class="site">
+<div id="header-placeholder">
+  <header class="header" id="site-header">
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="Trang chủ Swift Go">
+        <img src="assets/image/icon.jpg" alt="Swift Go - Mỗi chuyến đi, một câu chuyện" height="40" />
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="index.html" class="nav-item">Trang chủ</a>
+        <a href="page-services.html" class="nav-item">Dịch vụ</a>
+        <a href="page-stories.html" class="nav-item">Câu chuyện</a>
+        <a href="archive-tour.html" class="nav-item">Tour</a>
+        <a href="page-search.html" class="nav-item">Tìm kiếm</a>
+      </nav>
+      <div class="auth">
+        <a class="btn btn-ghost" href="/signup.html">Đăng ký</a>
+        <a class="btn btn-primary" href="/login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </header>
+</div>
+<main>
+
+<section class="page-header stories-header">
+  <div class="container">
+    <h1>Wanderlust Chronicles</h1>
+    <p>Nền tảng kể chuyện du lịch - Mỗi điểm đến là một câu chuyện sống động</p>
+  </div>
+</section>
+
+<section class="story-intro">
+  <div class="container">
+    <div class="intro-content">
+      <h2>Trải nghiệm du lịch theo cách kể chuyện</h2>
+      <p>Thay vì chỉ xem danh sách khô khan, hãy để chúng tôi dẫn dắt bạn qua những câu chuyện nhân văn, 
+      sự tiếp xúc gần gũi và những trải nghiệm đáng nhớ tại mỗi điểm đến.</p>
+      <p><strong>Mỗi điểm đến</strong> có một câu chuyện riêng - từ lịch sử, văn hóa, đến con người địa phương. 
+      <strong>Mỗi booking</strong> trở thành việc chọn cách viết tiếp câu chuyện của chính bạn.</p>
+    </div>
+  </div>
+</section>
+
+<section class="destinations-stories">
+  <div class="container" id="stories-container">
+    <!-- Stories will be loaded here via JavaScript -->
+  </div>
+</section>
+
+<!-- Story Modal -->
+<div id="story-modal" class="story-modal" style="display:none;">
+  <div class="story-modal-content">
+    <div class="story-modal-header">
+      <h3 id="story-modal-title"></h3>
+      <button class="story-modal-close" onclick="closeStoryModal()">×</button>
+    </div>
+    <div class="story-modal-body">
+      <p class="story-modal-location" id="story-modal-location"></p>
+      <div class="story-modal-meta" id="story-modal-meta"></div>
+      <div class="story-modal-tags" id="story-modal-tags"></div>
+      <div class="story-modal-narrative" id="story-modal-narrative"></div>
+    </div>
+  </div>
+</div>
+
+<section class="story-features">
+  <div class="container">
+    <h2>Tại sao chọn Wanderlust Chronicles?</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">📖</div>
+        <h3>Kể chuyện tương tác</h3>
+        <p>Mỗi điểm đến được trình bày như một câu chuyện sống động, không chỉ là thông tin khô khan</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🎭</div>
+        <h3>Trải nghiệm nhân văn</h3>
+        <p>Gặp gỡ nhân vật lịch sử, nghệ sĩ địa phương qua những câu chuyện cảm động</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✨</div>
+        <h3>Hành trình cá nhân hóa</h3>
+        <p>Mỗi booking là một "chương" trong cuộc phiêu lưu của riêng bạn</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🗺️</div>
+        <h3>Khám phá đa chiều</h3>
+        <p>Từ ẩm thực, văn hóa đến con người - trải nghiệm toàn diện mọi khía cạnh</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.stories-header{
+  background:linear-gradient(135deg, var(--booking-blue-dark) 0%, var(--booking-blue) 100%);
+  padding:64px 0 48px;
+}
+.stories-header h1{
+  font-size:42px;
+  color:#fff;
+  margin-bottom:12px;
+  font-style:italic;
+}
+.stories-header p{
+  font-size:18px;
+  color:rgba(255,255,255,.95);
+}
+
+.story-intro{
+  padding:64px 0;
+  background:var(--bg-soft);
+}
+.intro-content{
+  max-width:800px;
+  margin:0 auto;
+  text-align:center;
+}
+.intro-content h2{
+  font-size:32px;
+  margin-bottom:20px;
+  color:var(--text);
+}
+.intro-content p{
+  font-size:16px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-bottom:16px;
+}
+
+.destinations-stories{padding:48px 0;}
+.story-card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
+  margin-bottom:80px;
+  padding-bottom:80px;
+  border-bottom:2px dashed var(--line);
+}
+.story-card:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.story-right{direction:rtl;}
+.story-right > *{direction:ltr;}
+
+.story-image{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  transition:transform .3s;
+}
+.story-image:hover{
+  transform:scale(1.02);
+}
+.story-image img{width:100%;height:400px;object-fit:cover;border-radius:12px;}
+.story-overlay{
+  position:absolute;
+  top:20px;
+  left:20px;
+}
+.story-number{
+  background:rgba(0,0,0,.7);
+  color:#fff;
+  padding:8px 16px;
+  border-radius:20px;
+  font-size:14px;
+  font-weight:600;
+  backdrop-filter:blur(8px);
+}
+
+.story-content{padding:0 20px;}
+.story-header h2{font-size:36px;color:var(--primary);margin-bottom:8px;}
+.story-location{font-size:16px;color:var(--muted);margin-bottom:24px;}
+.story-description{margin-bottom:24px;}
+.story-summary{font-size:16px;color:var(--text);font-weight:500;margin-bottom:20px;line-height:1.6;}
+.story-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* Story Modal */
+.story-modal{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:32px;}
+.story-modal-content{background:#fff;width:100%;max-width:760px;max-height:90vh;overflow:auto;border-radius:16px;box-shadow:var(--shadow-lg);animation:fadeIn .25s ease;display:flex;flex-direction:column;}
+.story-modal-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line);}
+.story-modal-header h3{margin:0;font-size:24px;color:var(--primary);}
+.story-modal-close{background:none;border:none;font-size:32px;cursor:pointer;color:var(--muted);line-height:1;}
+.story-modal-close:hover{color:var(--text);}
+.story-modal-body{padding:20px 24px;display:flex;flex-direction:column;gap:16px;}
+.story-modal-location{font-size:14px;color:var(--muted);margin:0;}
+.story-modal-meta{font-size:12px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;}
+.story-modal-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.story-modal-tags .tag{background:var(--bg-soft);padding:4px 10px;border-radius:12px;font-size:11px;color:var(--text);border:1px solid var(--line);}
+.story-modal-narrative p{font-size:15px;line-height:1.8;margin:0 0 14px;color:var(--text);}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+.story-features{
+  padding:64px 0;
+  background:var(--bg-soft);
+}
+.story-features h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:48px;
+  color:var(--text);
+}
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:32px;
+}
+.feature-item{
+  background:#fff;
+  padding:32px 24px;
+  border-radius:8px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  transition:all .3s;
+}
+.feature-item:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+}
+.feature-icon{
+  font-size:48px;
+  margin-bottom:16px;
+}
+.feature-item h3{
+  font-size:20px;
+  margin-bottom:12px;
+  color:var(--text);
+}
+.feature-item p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+@media (max-width:968px){
+  .stories-header h1{font-size:32px;}
+  .intro-content h2{font-size:26px;}
+  .story-card{grid-template-columns:1fr;gap:32px;margin-bottom:48px;padding-bottom:48px;}
+  .story-right{direction:ltr;}
+  .story-image img{height:300px;}
+  .story-header h2{font-size:28px;}
+  .story-modal{padding:16px;}
+  .story-modal-content{max-width:100%;}
+}
+</style>
+
+</main>
+
+<div id="footer-placeholder">
+    <footer class="footer">
+      <div class="container footnote">© <span id="year"></span> Swift Go.</div>
+    </footer>
+
+    <div id="ai-chat-widget" class="ai-chat" aria-live="polite">
+      <button class="ai-chat-toggle" id="ai-chat-toggle" aria-controls="ai-chat-panel" aria-expanded="false">💬 Trợ lý AI</button>
+      <div id="ai-chat-panel" class="ai-chat-panel" role="dialog" aria-modal="false" aria-label="Trò chuyện với trợ lý du lịch AI">
+        <div class="ai-chat-header">
+          <div class="ai-chat-title">Trợ lý Du lịch AI</div>
+          <button type="button" class="ai-chat-close" id="ai-chat-close" aria-label="Đóng">×</button>
+        </div>
+        <div class="ai-chat-messages" id="ai-chat-messages" aria-label="Khu vực tin nhắn" tabindex="0"></div>
+        <form class="ai-chat-form" id="ai-chat-form" autocomplete="off">
+          <textarea id="ai-chat-input" class="ai-chat-input" rows="2" placeholder="Nhập câu hỏi: ví dụ 'Gợi ý lịch trình 3 ngày ở Đà Nẵng'" aria-label="Ô nhập câu hỏi"></textarea>
+          <div class="ai-chat-actions">
+            <button type="submit" class="btn btn-primary ai-send" aria-label="Gửi câu hỏi">Gửi</button>
+            <button type="button" class="btn ai-clear" id="ai-chat-clear" aria-label="Xóa hội thoại">Xóa</button>
+          </div>
+          <div class="ai-chat-hint">Mẹo: hỏi về gợi ý địa điểm, lịch trình, chi phí...</div>
+        </form>
+      </div>
+    </div>
+</div>
+
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/chat.js"></script>
+    <script src="assets/js/img-fallback.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/autocomplete.js"></script>
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/autocomplete.css">
+    
+<script>
+// Load and render stories
+let STORY_DATA = [];
+
+async function loadStories() {
+  try {
+    const response = await fetch('data/stories.json');
+    const data = await response.json();
+    STORY_DATA = data.stories || [];
+    renderStories();
+  } catch (error) {
+    console.error('Error loading stories:', error);
+    document.getElementById('stories-container').innerHTML = '<p>Không thể tải câu chuyện. Vui lòng thử lại sau.</p>';
+  }
+}
+
+function renderStories() {
+  const container = document.getElementById('stories-container');
+  container.innerHTML = '';
+  
+  STORY_DATA.forEach((story, index) => {
+    const article = document.createElement('article');
+    article.className = `story-card ${index % 2 === 0 ? 'story-left' : 'story-right'}`;
+    article.setAttribute('data-story-index', index);
+    
+    article.innerHTML = `
+      <div class="story-image">
+        <img src="${story.image}" 
+             alt="${story.title}" 
+             loading="lazy"
+             data-fallback="assets/image/icon.jpg"
+             onerror="this.src='assets/image/icon.jpg'; this.onerror=null;" />
+        <div class="story-overlay">
+          <span class="story-number">Chuyện ${index + 1}</span>
+        </div>
+      </div>
+      <div class="story-content">
+        <div class="story-header">
+          <h2>${story.title}</h2>
+          <p class="story-location">📍 ${story.location}</p>
+        </div>
+        <div class="story-description">
+          <p class="story-summary">${story.summary}</p>
+          <div class="story-narrative-preview">
+            <p><em>Nhấn "Đọc câu chuyện" để xem đầy đủ...</em></p>
+          </div>
+        </div>
+        <div class="story-actions">
+          <button class="btn btn-primary btn-read-story" data-story-index="${index}">Đọc câu chuyện</button>
+          <a href="page-services.html" class="btn btn-ghost">Dịch vụ liên quan</a>
+        </div>
+      </div>
+    `;
+    
+    container.appendChild(article);
+  });
+  
+  // Bind click events
+  document.querySelectorAll('.btn-read-story').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.storyIndex);
+      openStoryModal(idx);
+    });
+  });
+  
+  // Click on card
+  document.querySelectorAll('.story-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.story-actions')) return;
+      const idx = parseInt(card.dataset.storyIndex);
+      openStoryModal(idx);
+    });
+  });
+}
+
+function openStoryModal(index) {
+  const story = STORY_DATA[index];
+  if (!story) return;
+  
+  const modal = document.getElementById('story-modal');
+  document.getElementById('story-modal-title').textContent = story.title;
+  document.getElementById('story-modal-location').textContent = '📍 ' + story.location;
+  document.getElementById('story-modal-meta').innerHTML = `<span>✍️ ${story.author}</span><span>🕒 ${story.readingTime} phút đọc</span><span>📅 ${story.date}</span>`;
+  
+  // Tags
+  const tagsWrap = document.getElementById('story-modal-tags');
+  tagsWrap.innerHTML = '';
+  (story.tags || []).forEach(t => {
+    const span = document.createElement('span');
+    span.className = 'tag';
+    span.textContent = '#' + t;
+    tagsWrap.appendChild(span);
+  });
+  
+  // Narrative paragraphs
+  const narrativeEl = document.getElementById('story-modal-narrative');
+  narrativeEl.innerHTML = '';
+  (story.narrative || []).forEach(p => {
+    const para = document.createElement('p');
+    para.textContent = p;
+    narrativeEl.appendChild(para);
+  });
+  
+  modal.style.display = 'flex';
+  document.body.classList.add('story-modal-open');
+}
+
+function closeStoryModal() {
+  const modal = document.getElementById('story-modal');
+  modal.style.display = 'none';
+  document.body.classList.remove('story-modal-open');
+}
+
+// Close on backdrop click
+document.getElementById('story-modal')?.addEventListener('click', e => {
+  if (e.target.id === 'story-modal') {
+    closeStoryModal();
+  }
+});
+
+// ESC key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeStoryModal();
+  }
+});
+
+// Load stories on page load
+loadStories();
+</script>
+
+  </body>
+</html>
+
