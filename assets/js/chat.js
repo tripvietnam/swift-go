@@ -229,8 +229,7 @@
 (function() {
   'use strict';
 
-  // ⚠️ PROXY_URL: Update this to your Vercel deployment URL after deploying
-  // Example: const PROXY_URL = 'https://your-vercel-app.vercel.app/api/chat';
+ 
   const PROXY_URL = '/api/chat'; // Local development or same-origin proxy
   const MODEL = 'llama-3.3-70b-versatile';
   const STORAGE_KEY = 'swiftgo_chat_history';
@@ -336,13 +335,11 @@
     }
   }
 
-  // Send message to AI via secure proxy
   async function sendMessage(userMessage) {
     addMessage('user', userMessage);
     const loading = addLoading();
 
     try {
-      // Call secure backend proxy (no API key exposed)
       const response = await fetch(PROXY_URL, {
         method: 'POST',
         headers: {

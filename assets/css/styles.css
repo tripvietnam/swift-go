@@ -241,10 +241,10 @@ p{margin:0 0 12px;color:var(--muted);line-height:1.6;}
   color:#fff;
 }
 .logo img{
-  height:32px;
+  height:40px;
   width:auto;
   border-radius:0;
-  filter:brightness(0) invert(1);
+  filter:none;
 }
 .nav-links{display:flex;gap:4px;align-items:center;}
 .nav-links a{
@@ -685,6 +685,10 @@ p{margin:0 0 12px;color:var(--muted);line-height:1.6;}
   font-weight:700;
   color:var(--text);
 }
+.footer-text{color:var(--text);font-size:13px;line-height:1.6;margin:4px 0;}
+.footer-legal{color:var(--muted);font-style:italic;}
+.footer-social{display:flex;flex-direction:column;gap:6px;}
+.social-link{color:var(--primary);font-size:13px;}
 .footer a{
   display:block;
   color:var(--primary);
